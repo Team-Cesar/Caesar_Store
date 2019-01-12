@@ -1,0 +1,24 @@
+{
+    "id": "ObjectId",
+    "cat_name": "string",
+    "prod_list": [
+        {
+            "id": "ObjectId",
+            "prod_name": "string",
+            "prod_desc": "string",
+            "prod_code": "string",
+            "prod_stock": "string",
+            "prod_brand": "string",
+            "prod_price": "string",
+            "prod_discount": "string",
+            "prod_status": "string",
+            "image_list": [
+                {
+                    "id": "ObjectId",
+                    "image_name": "string",
+                    "image_url": "string"
+                }
+            ]
+        }
+    ]
+}

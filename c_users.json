@@ -1,0 +1,17 @@
+{
+    "id": "ObjectId",
+    "user_name": "string",
+    "user_email": "string",
+    "user_salt": "string",
+    "user_hash": "string",
+    "purchases_list": [
+        {
+            "id": "ObjectId",
+            "purch_date": "date",
+            "purch_prod": "string",
+            "purch_currency": "string",
+            "purch_price": "double",
+            "purch_state": "string"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "id": "ObjectId",
+    "admin_name": "string",
+    "admin_email": "string",
+    "admin_salt": "string",
+    "admin_hash": "string",
+    "admin_role": {
+        "role_admin": "boolean",
+        "role_oper": "boolean",
+        "role_client": "boolean"
+    },
+    "purchases_list": [
+        {
+            "id": "ObjectId",
+            "purch_date": "date",
+            "purch_prod": "string",
+            "purch_price": "double",
+            "purch_currency": "string",
+            "purch_state": "string"
+        }
+    ]
+}

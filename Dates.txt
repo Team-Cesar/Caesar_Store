@@ -1,0 +1,8 @@
+GitHub-TeamJobs: https://github.com/Team-Cesar
+
+
+Módulos:
+1) ChatModule: Bryan
+2) Front-End-Module: Omar y Rogelio
+3) ShoppingCartModule: Daniel
+4) BackEndModule: Eliezer
