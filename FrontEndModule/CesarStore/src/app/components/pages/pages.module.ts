@@ -13,6 +13,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { BuscarComponent } from './buscar/buscar.component';
+
 
 
 
@@ -29,6 +31,7 @@ HomeComponent,
 NopagefoundComponent,
 TabletsComponent,
 PagesComponent,
+BuscarComponent,
 
 ],
 exports: [
