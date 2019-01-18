@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { CamarasComponent } from './camaras/camaras.component';
@@ -13,11 +14,6 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { BuscarComponent } from './buscar/buscar.component';
-
-
-
-
 
 
 @NgModule({
@@ -31,7 +27,6 @@ HomeComponent,
 NopagefoundComponent,
 TabletsComponent,
 PagesComponent,
-BuscarComponent,
 
 ],
 exports: [
@@ -47,7 +42,8 @@ PagesComponent
 imports: [
     BrowserModule,
     PAGES_ROUTES,
-    RouterModule
+    RouterModule,
+    FormsModule
 ]
 })
 export class PagesModule { }

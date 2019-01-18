@@ -4,8 +4,9 @@
 
 
     <ul class="collapse navbar-collapse d-flex justify-content-center">
-        <form class="form-inline my-2 my-lg-0" (ngSubmit)="buscarArticulo(buscar1.value)">
-            <input class="search1" type="text" placeholder="Buscar" #buscar1>
+
+        <form class="form-inline my-2 my-lg-0" (ngSubmit)="buscarArticulo(buscar.value)">
+            <input class="search1" type="text" placeholder="Buscar" #buscar>
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">buscar</button>
         </form>
     </ul>
@@ -22,9 +23,7 @@
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavAltMarkup">
             <div class="navbar-nav ">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-                </button>
+
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item" routerLinkActive="active">
                         <a class="nav-link" [routerLink]="['/home']">Home </a>
