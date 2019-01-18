@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.sass']
 })
 export class CheckoutComponent implements OnInit {
-
-  constructor() { }
+  public mensaje:string;
+  constructor(private _data:DataService) { }
 
   ngOnInit() {
+  }
+
+  enviar(){
+    // this._data.changeMessage(this.mensaje);
   }
 
 }

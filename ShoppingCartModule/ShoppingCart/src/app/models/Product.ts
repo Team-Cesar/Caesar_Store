@@ -1,3 +1,5 @@
+import { Image } from "./Image";
+
 export class Product{
     public prod_name:String;
     public prod_desc:String;
@@ -7,11 +9,6 @@ export class Product{
     public prod_price:Number;
     public prod_discount:Number;
     public prod_status:String;
-    public image_list:[
-        {
-            image_name:String;
-            image_url:String;
-        }
-    ];
+    public image_list:Array<Image>;
     
 }

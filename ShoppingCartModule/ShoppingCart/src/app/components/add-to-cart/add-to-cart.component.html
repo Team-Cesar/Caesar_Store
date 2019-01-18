@@ -1,3 +1,103 @@
-<p>
-  add-to-cart works!
-</p>
+<div class="row m-auto mt-5">
+  <div class="col col-8 m-auto">
+    <form (ngSubmit)="registrarproduct()" class="form-group">
+
+      <div class="row">
+
+        <div class="col col-4 form-group">
+          <label for="">Usuario:</label>
+        </div>
+
+        <div class="col col-8">
+          <input type="text" class="form-control" name="user.user_name" placeholder="Daniele"
+            [(ngModel)]="user.user_name">
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col col-4">
+          <label for="">Nombre:</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="purchase.purch_prod" placeholder="iPhone plus"
+            [(ngModel)]="purchase.purch_prod">
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col col-4">
+          <label for="">Codigo</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="product.prod_code" placeholder="XM-10" [(ngModel)]="product.prod_code">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-4">
+          <label for="">Stock disponible</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="product.prod_stock" placeholder="25"
+            [(ngModel)]="product.prod_stock">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-4">
+          <label for="">Marca:</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="product.prod_brand" placeholder="Xiaomi"
+            [(ngModel)]="product.prod_brand">
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col col-4">
+          <label for="">Precio:</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="purchase.purch_price" placeholder="730.0"
+            [(ngModel)]="purchase.purch_price">
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col col-4">
+          <label for="">Descuento:</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="product.prod_discount" placeholder="35"
+            [(ngModel)]="product.prod_discount">
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col col-4">
+          <label for="">Estado:</label>
+        </div>
+        <div class="col col-8">
+          <input type="text" class="form-control" name="purchase.purch_state" placeholder="Correcto"
+            [(ngModel)]="purchase.purch_state">
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-success p-1 mr-3" type="submit">Registrar</button>
+        <button class="btn btn-info p-1" routerLink="/shop-list">Ir al carrito</button>
+      </div>
+      <!-- <div class="row">
+      </div> -->
+    </form>
+  </div>
+</div>
+
+<!-- <app-shop-list></app-shop-list> -->
+
+<!-- <div class="jumbotron-fluid">
+  Mensaje del servicio: {{message}}
+</div> -->
+
+<!-- <app-checkout></app-checkout> -->

@@ -4,6 +4,7 @@
     "user_email": "string",
     "user_salt": "string",
     "user_hash": "string",
+    "user_role": "number",
     "purchases_list": [
         {
             "id": "ObjectId",
@@ -11,7 +12,8 @@
             "purch_prod": "string",
             "purch_currency": "string",
             "purch_price": "double",
-            "purch_state": "string"
+            "purch_state": "string",
+            "purch_amount": "number"
         }
     ]
 }
