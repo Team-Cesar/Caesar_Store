@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+/* import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { NopagefoundComponent } from '../pages/nopagefound/nopagefound.component';
@@ -9,7 +9,7 @@ const adminRoutes: Routes = [
         path: '',
         component: AdminComponent,
         children: [
-        { path: 'admin', component: NopagefoundComponent },  
+        { path: 'celularesAdmin', component: NopagefoundComponent },  
         { path: 'nopagefound', component: NopagefoundComponent },
         
         ]
@@ -17,4 +17,4 @@ const adminRoutes: Routes = [
 // tslint:disable-next-line:eofline
 ];
 
-export const ADMIN_ROUTES = RouterModule.forChild( adminRoutes );
+export const ADMIN_ROUTES = RouterModule.forChild( adminRoutes ); */
