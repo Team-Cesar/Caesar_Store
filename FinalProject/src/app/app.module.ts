@@ -7,12 +7,8 @@ import { AppComponent } from './app.component';
 
 // modulos
 import { PagesModule } from './components/pages/pages.module';
+import { ShoppingModule } from './components/shoppingCart/shoppingCart.module'
 
-// SHOPPING-CART
-import { ShopListComponent } from './components/shop-list/shop-list.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import { PostPurchaseComponent } from './components/post-purchase/post-purchase.component';
-import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 
 // FRONT-OMAR
 import { LoginComponent } from './components/login/login.component';
@@ -28,13 +24,9 @@ import { TabletComponent } from './components/body/tablet/tablet.component';
 import { CameraComponent } from './components/body/camera/camera.component';
 import { RedesComponent } from './components/redes/redes.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { NgSelectMultipleOption } from '@angular/forms/src/directives';
 
 const routes: Routes = [
-  { path: '', component: PagesComponent},
-  { path: '***', component: AddToCartComponent},
-  { path: 'addToCart', component: AddToCartComponent},
-  { path: 'checkout', component: CheckoutComponent},
-  { path: 'shop-list', component: ShopListComponent},
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -50,11 +42,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ShopListComponent,
-    CheckoutComponent,
-    PostPurchaseComponent,
-    AddToCartComponent,
-
     LoginComponent,
     RegisterComponent,
 
@@ -71,6 +58,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     PagesModule,
+    ShoppingModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
