@@ -3,10 +3,10 @@
     <div class="col col-12">
 
       <!-- fila de preguntas -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col col-12">
           <div class="row mb-3">
-            <div class="col col-6">
+            <div class="col col-6" *ngIf="user.user_name == 'Invitado'">
               <p>¿Eres cliente?</p>
               <a class="">Ingresa a tu cuenta</a>
             </div>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <hr>
+      <hr> -->
 
       <h2>Detalles de compra</h2>
       <!-- fila del formulario -->
@@ -393,67 +393,15 @@
           </div> -->
         </div>
       </div>
-      <hr>
-      <!-- fila de la compañia -->
-      <div class="row">
-        <div class="col"></div>
-      </div>
-      <hr>
-      <!-- Fila del pais -->
-      <div class="row">
-        <div class="col"></div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-      </div>
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col col-6 m-auto text-center">
-    <div class="" id="paypal-button">
-        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-      <script>
-        paypal.Button.render({
-          // Configure environment
-          env: 'sandbox',
-          client: {
-            sandbox: 'AcKwWTLdsWXhSTdykxMhx8nsVsxh98DF6sBmFSyPXuIDsvno4ml6sjbiVLB2HMVtbftHWTDhf6OpMTeM',
-            production: 'AVV4RoaqnaPG-leCK-A0p0YIX9NCozP0jyXWF6Ju2fsNXgmjQo6x5d6jlaivbfM2slwrL2ZT6KzDDoe-'
-          },
-          // Customize button (optional)
-          locale: 'en_US',
-          style: {
-            size: 'responsive',
-            color: 'silver',
-            shape: 'pill',
-          },
-    
-          // Enable Pay Now checkout flow (optional)
-          commit: true,
-    
-          // Set up a payment
-          payment: function (data, actions) {
-            return actions.payment.create({
-              transactions: [{
-                amount: {
-                  total: '0.01',
-                  currency: 'USD'
-                }
-              }]
-            });
-          },
-          // Execute the payment
-          onAuthorize: function (data, actions) {
-            return actions.payment.execute().then(function () {
-              // Show a confirmation message to the buyer
-              window.alert('Thank you for your purchase!');
-            });
-          }
-        }, '#paypal-button');
-    
-      </script>
+  <div class="row">
+    <div class="col col-6 text-center">
+      <button class="btn btn-danger pl-2 pr-2" routerLink="/shop-list">
+          Regresar al carrito de compras
+      </button>
+    </div>
+    <div class="col col-6 text-center">
+      <ngx-paypal [config]="payPalConfig"></ngx-paypal>
     </div>
   </div>
-</div>

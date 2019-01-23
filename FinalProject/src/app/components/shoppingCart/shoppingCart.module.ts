@@ -7,9 +7,7 @@ import { PostPurchaseComponent } from "./post-purchase/post-purchase.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { ShopListComponent } from "./shop-list/shop-list.component";
 import { SHOPPING_ROUTES } from './shoppingCart.routes';
-
-
-
+import { NgxPayPalModule } from 'ngx-paypal'
 
 @NgModule({
 
@@ -31,8 +29,8 @@ import { SHOPPING_ROUTES } from './shoppingCart.routes';
     imports: [        
         SHOPPING_ROUTES,
         FormsModule, 
-        BrowserModule  
-               
+        BrowserModule,
+        NgxPayPalModule
     ]
     })
     export class ShoppingModule { }
