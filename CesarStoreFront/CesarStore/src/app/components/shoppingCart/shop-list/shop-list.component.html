@@ -1,0 +1,139 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col col-12">
+            <div class="row text-white bg-dark text-center">
+                <div class="col col-1"></div>
+                <div class="col col-3">Imagen</div>
+                <div class="col col-4">Producto</div>
+                <div class="col col-2">Cantidad</div>
+                <div class="col col-2">Precio</div>
+            </div>
+            <div class="row border d-flex align-items-center text-center" *ngFor="let product of products; let i = index">
+                <div class="col col-1">
+                    <button class="btn btn danger">
+                        <i class="fas fa-times size:3x"></i>
+                    </button>
+                </div>
+                <div class="col col-3" style="border: 1px solid blue;">
+                    <div class="row d-flex">
+                        <div class="col col-12">
+                            <img src="{{product.image_list[0].image_url}}" alt="" style="border: 1px solid purple;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-4 m-0 p-0" style="border: 1px solid purple; height: 100%;">{{product.prod_name}}</div>
+                <div class="col col-2 ">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-12 col-sm-4" (click)="operation(i, true)" style="border: 1px solid blue;">
+                            <button class="btn btn-dark m-0 p-0" style="border: 1px solid red;">
+                                <i class="fas fa-plus size:2x"></i>
+                            </button>
+                        </div>
+                        <div class="col col-12 col-sm-4 mr-0 ml-0">
+                            {{amount[i]}}
+                        </div>
+                        <div class="col col-12 col-sm-4" (click)="operation(i, false)" style="border: 1px solid blue;">
+                            <button class="btn btn-dark m-0 p-0" style="border: 1px solid red;">
+                                <i class="fas fa-minus size:2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-2 col-md-2">{{precioProductoFinal[i]}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-light">
+        <div class="col col-10">TOTAL</div>
+        <div class="col col-2">{{precioTotal}}</div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col col-6 mr-auto text-left">
+            Bienvenido <label class="badge badge-danger">{{user.user_name}}</label>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="text-center bg-dark text-white">
+                    <th scope="col">#</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let purchase of shopping_cart; let i = index">
+                    <th scope="row">
+                        <button class="btn btn danger" (click)="eliminar(i)">
+                            <i class="fas fa-times size:3x"></i>
+                        </button>
+                    </th>
+                    <td>
+                        <img src="{{purchase.purch_image}}" alt="" >
+                    </td>
+                    <td>{{purchase.purch_prod}}</td>
+                    <td>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col col-12 col-sm-3" (click)="operation(i, true)">
+                                <button class="btn btn-dark">
+                                    <i class="fas fa-plus size:2x"></i>
+                                </button>
+                            </div>
+                            <div class="col col-12 col-sm-3 text-center">
+                                {{purchase.purch_amount}}
+                            </div>
+                            <div class="col col-12 col-sm-3" (click)="operation(i, false)">
+                                <button class="btn btn-dark">
+                                    <i class="fas fa-minus size:2x"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{purchase.purch_price}}</td>
+                    <td class="">{{purchase.purch_totalPay}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    
+    <div class="row d-flex justify-content-sm-end justify-content-start">
+        <div class="col col-12 col-md-8 text-center mr-3">
+            <div class="row">
+                <div class="col col-12 bg-dark text-white">
+                    <label for="">PROCEDA A COMPRAR</label> 
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end bg-light">
+                <div class="col col-6 text-left bg-light" >
+                    <label for="">CANTIDAD DE PRODUCTOS</label>
+                </div>
+                <div class="col col-6 text-right" >
+                    {{cantidadAComprar}}
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end">
+                <!-- <div class="col col-6 text-left bg-light" style="border: 1px solid red;"> -->
+                <div class="col col-6 text-left bg-light">
+                    <label for="">TOTAL A PAGAR</label>
+                </div>
+                <div class="col col-6 text-right">
+                    {{totalAPagar}}
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end">
+                <div class="col col-3 text-right" >
+                    <button class="btn btn-group" routerLink="/checkout" (click)="comprar()">COMPRAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-info p-1" [routerLink]="['/addToCart']">Volver a compras</button>
+</div>
