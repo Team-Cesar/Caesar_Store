@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 
 // modulos
 import { PagesModule } from './components/pages/pages.module';
-import { ShoppingModule } from './components/shoppingCart/shoppingCart.module'
+import { ShoppingModule } from './components/shoppingCart/shoppingCart.module';
+import { AdminModule } from './components/admin/admin.module';
+
+
 
 
 // FRONT-OMAR
@@ -25,6 +28,7 @@ import { CameraComponent } from './components/body/camera/camera.component';
 import { RedesComponent } from './components/redes/redes.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { NgSelectMultipleOption } from '@angular/forms/src/directives';
+
 
 const routes: Routes = [
 
@@ -59,6 +63,7 @@ const routes: Routes = [
     FormsModule,
     PagesModule,
     ShoppingModule,
+    AdminModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
