@@ -13,7 +13,6 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { AdminModule } from '../admin/admin.module';
 
 
 
@@ -43,7 +42,6 @@ TabletsComponent,
 PagesComponent
 ],
 imports: [
-    AdminModule,
     BrowserModule,
     PAGES_ROUTES,
     RouterModule
