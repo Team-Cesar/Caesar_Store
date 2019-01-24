@@ -13,6 +13,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { RedesComponent } from './redes/redes.component';
+import { SidevarrogComponent } from './sidevarrog/sidevarrog.component';
 
 
 
@@ -29,6 +31,8 @@ HomeComponent,
 NopagefoundComponent,
 TabletsComponent,
 PagesComponent,
+RedesComponent,
+SidevarrogComponent
 
 ],
 exports: [
