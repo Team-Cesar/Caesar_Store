@@ -1,0 +1,26 @@
+.contenido{
+    margin-right: 0%;
+
+}
+.side{
+    width: 255px;
+    
+    margin-left: 0.5rem;
+}
+
+.row{
+    
+    width: 101%;
+}
+.card-title:hover {
+    text-decoration: underline;
+}
+.card{
+    width: 350px;
+    height: 32rem;
+  
+    
+}
+.card-img-top{
+    height: 15rem;
+}
