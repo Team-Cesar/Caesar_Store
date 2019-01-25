@@ -1,6 +1,7 @@
 {
     "id": "ObjectId",
     "user_name": "string",
+    "user_lastname":"string",
     "user_email": "string",
     "user_salt": "string",
     "user_hash": "string",
@@ -8,12 +9,24 @@
     "purchases_list": [
         {
             "id": "ObjectId",
-            "purch_date": "date",
-            "purch_prod": "string",
-            "purch_currency": "string",
-            "purch_price": "double",
-            "purch_state": "string",
-            "purch_amount": "number"
+            "purchase_date":"Date",
+            "purchase_details":{
+                "send_dates":{
+                    "send_company":"string",
+                    "send_country":"string",
+                    "send_street":"string",
+                    "send_state":"string",
+                    "send_phone":"string",
+                    "send_zip":"string"
+                },
+                "purchase_dates":{
+                    "purch_prod": "string",
+                    "purch_currency": "string",
+                    "purch_price": "double",
+                    "purch_state": "string",
+                    "purch_amount": "number"
+                }
+            }
         }
     ]
 }

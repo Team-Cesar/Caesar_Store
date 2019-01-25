@@ -3,10 +3,10 @@
     <div class="col col-12">
 
       <!-- fila de preguntas -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col col-12">
           <div class="row mb-3">
-            <div class="col col-6">
+            <div class="col col-6" *ngIf="user.user_name == 'Invitado'">
               <p>¿Eres cliente?</p>
               <a class="">Ingresa a tu cuenta</a>
             </div>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <hr>
+      <hr> -->
 
       <h2>Detalles de compra</h2>
       <!-- fila del formulario -->
@@ -29,12 +29,12 @@
             <div class="col col-6">
               <label for="">Nombres</label>
               <br>
-              <input class="w-100" type="text" name="credential.name" [(ngModel)]="credential.name">
+              <input class="w-100" type="text" name="send.send_name" [(ngModel)]="send.send_name">
             </div>
             <div class="col col-6">
               <label for="">Apellido</label>
               <br>
-              <input class="w-100" type="text" name="credential.lastname" [(ngModel)]="credential.lastname">
+              <input class="w-100" type="text" name="send.send_lastname" [(ngModel)]="send.send_lastname">
             </div>
           </div>
 
@@ -43,7 +43,7 @@
             <div class="col col-12">
               <label for="">Nombre de compañia (opcional)</label>
               <br>
-              <input class="w-100" type="text" name="credential.company" id="">
+              <input class="w-100" type="text" name="send.send_company" id="" [(ngModel)]="send.send_company">
             </div>
           </div>
 
@@ -51,7 +51,7 @@
           <div class="row mb-3">
             <div class="col col-12">
               <label for="">Pais</label><br>
-              <select class="w-100" name="credential.country" placeholder="country" [(ngModel)]="credential.country">
+              <select class="w-100" name="send.send_country" placeholder="Perú" [(ngModel)]="send.send_country">
                 <option value="">Select a country…</option>
                 <option value="AX">Åland Islands</option>
                 <option value="AF">Afghanistan</option>
@@ -309,26 +309,26 @@
           <!-- Street address -->
           <div class="row mb-3">
             <div class="col col-12">
-              <label for="credential.street">Dirección</label>
+              <label for="credential.street">Ciudad</label>
               <br>
-              <input class="w-100" type="text" name="credential.street" id="" placeholder="Av. Independencia - Arequipa">
+              <input class="w-100" type="text" name="send.send_city" id="" placeholder="Arequipa" [(ngModel)]="send.send_city">
             </div>
           </div>
 
-          <!-- Town city -->
-          <!-- <div class="row mb-3">
+          <!-- Street address -->
+          <div class="row mb-3">
             <div class="col col-12">
-              <label for="">Town/city</label>
+              <label for="credential.street">Dirección</label>
               <br>
-              <input class="w-100" type="text" name="credential.city" id="" [(ngModel)]="credential.city">
+              <input class="w-100" type="text" name="send.send_street" id="" placeholder="Av. EE.UU. 452 - Arequipa" [(ngModel)]="send.send_street">
             </div>
-          </div> -->
+          </div>
 
           <!-- state / Country -->
           <div class="row mb-3">
             <div class="col ">
               <label for="">Estado/Provincia</label><br>
-              <select class="w-100" name="credential.state" [(ngModel)]="credential.state">
+              <select class="w-100" name="send.send_state" [(ngModel)]="send.send_state">
                 <option value="">Seleccione una región</option>
                 <option value="CAL">El Callao</option>
                 <option value="LMA">Municipalidad Metropolitana de Lima</option>
@@ -365,7 +365,7 @@
             <div class="col">
               <label for="">Codigo ZIP/Codigo postal</label>
               <br>
-              <input class="w-100" type="text" name="credential.zip" id="" [(ngModel)]="credential.zip">
+              <input class="w-100" type="text" name="send.send_zip" id="" [(ngModel)]="send.send_zip">
             </div>
           </div>
 
@@ -374,7 +374,7 @@
             <div class="col">
               <label for="">Teléfono</label>
               <br>
-              <input class="w-100" type="text" name="credential.phone" id="" [(ngModel)]="credential.phone">
+              <input class="w-100" type="text" name="send.send_phone" id="" [(ngModel)]="send.send_phone">
             </div>
           </div>
 
@@ -383,77 +383,22 @@
             <div class="col">
               <label for="">Email</label>
               <br>
-              <input class="w-100" type="text" name="credential.email" id="" [(ngModel)]="credential.email">
+              <input class="w-100" type="text" name="user.user_email" id="" [(ngModel)]="user.user_email">
             </div>
           </div>
-
-          <!--  -->
-          <!-- <div class="row mb-3">
-            <div class="col"></div>
-          </div> -->
+          
         </div>
       </div>
-      <hr>
-      <!-- fila de la compañia -->
-      <div class="row">
-        <div class="col"></div>
-      </div>
-      <hr>
-      <!-- Fila del pais -->
-      <div class="row">
-        <div class="col"></div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-      </div>
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col col-6 m-auto text-center">
-    <div class="" id="paypal-button">
-        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-      <script>
-        paypal.Button.render({
-          // Configure environment
-          env: 'sandbox',
-          client: {
-            sandbox: 'AcKwWTLdsWXhSTdykxMhx8nsVsxh98DF6sBmFSyPXuIDsvno4ml6sjbiVLB2HMVtbftHWTDhf6OpMTeM',
-            production: 'AVV4RoaqnaPG-leCK-A0p0YIX9NCozP0jyXWF6Ju2fsNXgmjQo6x5d6jlaivbfM2slwrL2ZT6KzDDoe-'
-          },
-          // Customize button (optional)
-          locale: 'en_US',
-          style: {
-            size: 'responsive',
-            color: 'silver',
-            shape: 'pill',
-          },
-    
-          // Enable Pay Now checkout flow (optional)
-          commit: true,
-    
-          // Set up a payment
-          payment: function (data, actions) {
-            return actions.payment.create({
-              transactions: [{
-                amount: {
-                  total: '0.01',
-                  currency: 'USD'
-                }
-              }]
-            });
-          },
-          // Execute the payment
-          onAuthorize: function (data, actions) {
-            return actions.payment.execute().then(function () {
-              // Show a confirmation message to the buyer
-              window.alert('Thank you for your purchase!');
-            });
-          }
-        }, '#paypal-button');
-    
-      </script>
+  <div class="row">
+    <div class="col col-6 text-center">
+      <button class="btn btn-danger pl-2 pr-2 pt-0 pb-0" routerLink="/shop-list">
+          Regresar al carrito de compras
+      </button>
+    </div>
+    <div class="col col-6 text-center">
+      <!-- <ngx-paypal (click)="comprar()" [config]="payPalConfig"></ngx-paypal> -->
+      <button class="btn btn-info pt-0 pb-0" (click)="comprar()" routerLink="/thanks">Comprar</button>
     </div>
   </div>
-</div>

@@ -4,6 +4,7 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { HomeComponent } from '../pages/home/home.component';
+import { PostPurchaseComponent } from './post-purchase/post-purchase.component';
 
 const pagesRoutes: Routes = [
     {
@@ -15,6 +16,7 @@ const pagesRoutes: Routes = [
         { path: 'addToCart', component: AddToCartComponent},
         { path: 'checkout', component: CheckoutComponent},
         { path: 'shop-list', component: ShopListComponent},
+        { path: 'thanks', component: PostPurchaseComponent},
         { path: 'home', component: HomeComponent },
         { path: '', redirectTo: '/home', pathMatch: 'full' },
         ]

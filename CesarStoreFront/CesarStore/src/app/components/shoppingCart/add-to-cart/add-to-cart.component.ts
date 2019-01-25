@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
-import { Image } from 'src/app/models/Image';
 import { User } from 'src/app/models/User';
 import { Purchase } from 'src/app/models/Purchase';
-// import { DataService } from 'src/app/services/data.service';
-
 
 @Component({
   selector: 'app-add-to-cart',
@@ -12,83 +9,91 @@ import { Purchase } from 'src/app/models/Purchase';
   styleUrls: ['./add-to-cart.component.sass']
 })
 export class AddToCartComponent implements OnInit {
-  // public product:Product = new Product();
-  // public products:Array<Product> = new Array<Product>();
-  // public message:string;
-  // public images:Array<Image> = new Array<Image>();
-  // public image:Image = new Image();
   public purchase:Purchase = new Purchase();
-  public purchases:Array<Purchase> = new Array<Purchase>();
+  // public purchase:Purchase = new Purchase();
+  // public purchases:Array<Purchase> = new Array<Purchase>();
+  public product:Product = new Product();
+  public products:Array<Product> = new Array<Product>();
+  public prod_name:string = '';
+  public prod_price:string;
   public user:User = new User();
   // public images:Array<object> = new Array<object>();
   constructor() {
-    // this.user.user_name = "Daniele";
-    // this.user.user_email = "daniele@user.com";
-    
-    // let purchase = new Purchase();
-    // this.purchase.purch_amount = 1;
-    // this.purchase.purch_currency = "PEN";
-    // this.purchase.purch_date = new Date();
-    // this.purchase.purch_price = 732.2;
-    // this.purchase.purch_prod = "Xiaomi Redmi Note 5";
-    // this.purchase.purch_state = "Correcto";
-    // this.purchase.purch_totalPay = 732.2;
-    // this.purchase.purch_image = "http://placehold.it/100x100";
-
-    // this.purchases.push(this.purchase);
-    // this.user.purchases_list.push(this.purchase);
-    // this.user.purchases_list.);
-    
-    // let purchase2 = new Purchase();
-    // this.purchase.purch_amount = 1;
-    // this.purchase.purch_currency = "PEN";
-    // this.purchase.purch_date = new Date();
-    // this.purchase.purch_price = 1200.2;
-    // this.purchase.purch_prod = "iPhone 9";
-    // this.purchase.purch_state = "Correcto";
-    // this.purchase.purch_totalPay = 1200.2;
-    // this.purchase.purch_image = "http://placehold.it/100x100";
-    // this.purchases.push(this.purchase);
-    
-    // this.user.purchases_list = this.purchases;
-    
-    
-    // localStorage.setItem("shopping_cart",JSON.stringify(this.user));
     if(localStorage.getItem("User")){
       this.user = JSON.parse(localStorage.getItem("User"));
+      // this.user.purchases_list.forEach((purchase)=>{
+      this.products = this.user.purchase.prod_details;
+
+      // });
     }else{
       this.user.user_role = 3;
       this.user.user_name = "Invitado";
-      this.user.purchases_list = this.purchases;
+      this.purchase.prod_details = this.products;
+      this.user.purchase = this.purchase;
+      
+      // this.purchase.purchase_date = new Date();
+      // this.product.purch_prod = "Xiami Redmi Note 5";
+      // this.product.purch_currency = "PEN";
+      // this.product.purch_amount = 1;
+      // this.product.purch_price = 732.0;
+      // this.product.purch_state = "Correcto";
+      // this.product.purch_totalPay = this.product.purch_price;
+      // this.product.purch_image = "http://placehold.it/100x100";
+      // this.purchase.prod_details = this.product;
+
+      // this.purchases.push(this.purchase);
+      localStorage.setItem("User",JSON.stringify(this.user));
     }
-    this.purchases = this.user.purchases_list;
+    // this.purchases = this.user.purchases_list;
     console.log("[AddToCartComponent|constructor] user:");
     console.log(this.user);
-    console.log("[AddToCartComponent|constructor] purchases:");
-    console.log(this.purchases);
+    // console.log("[AddToCartComponent|constructor] purchase:");
+    // console.log(this.user.);
+    console.log("[AddToCartComponent|constructor] products:");
+    console.log(this.products);
   }
   
   ngOnInit() {
   }
   
-  registrarproduct(){
-    this.purchase.purch_date = new Date();
-    // this.purchase.purch_prod = "iPhone 9";
-    this.purchase.purch_currency = "PEN";
-    this.purchase.purch_amount = 1;
-    // this.purchase.purch_price = 1200.2;
-    this.purchase.purch_totalPay = this.purchase.purch_price;
-    this.purchase.purch_state = "Correcto";
-    this.purchase.purch_image = "http://placehold.it/100x100";
-    
-    console.log("[AddToCartComponent|registrarproduct] purchase:");
-    console.log(this.purchase);
-    
-    this.purchases.push(this.purchase);
-    console.log("[AddToCartComponent|constructor] purchases:");
-    console.log(this.purchases);
+  registrarProducto(){
+    // let purchase = new Purchase();
+    let product = new Product();
+    // let products = new Array<Product>();
+    // this.purchase.purchase_date = new Date();
+    this.purchase.purchase_date = new Date();
+    //  product = new Product();
+    product.prod_name = this.prod_name;
+    product.prod_currency = "PEN";
+    product.prod_amount = 1;
+    product.prod_price = parseInt(this.prod_price);
+    product.prod_state = "Correcto";
+    product.prod_totalPay = product.prod_price;
+    product.prod_state = "Correcto";
+    product.prod_image = "http://placehold.it/100x100";
+    product.prod_currency = "PEN";
 
-    this.user.purchases_list = this.purchases;
+    // this.product.prod_amount = 1;
+    // this.product.prod_price = parseInt(this.purch_price);
+    // this.product.prod_state = "Correcto";
+    // this.product.prod_totalPay = this.product.prod_price;
+    // this.product.prod_state = "Correcto";
+    // this.product.prod_image = "http://placehold.it/100x100";
+    
+    this.products.push(product);
+    this.purchase.prod_details = this.products;
+    this.user.purchase = this.purchase;
+    console.log("[AddToCartComponent|registrarproduct] user:");
+    console.log(this.user);
+
+    // console.log("[AddToCartComponent|registrarproduct] purchase:");
+    // console.log(this.purchase);
+    
+    // this.purchases.push(this.purchase);
+    // console.log("[AddToCartComponent|registrarproduct] purchases:");
+    // console.log(this.purchases);
+
+    // this.user.purchase.prod_details = this.products;
 
     localStorage.setItem("User",JSON.stringify(this.user));
     // console.log("[AddToCartComponent|registrarProducto] products:");

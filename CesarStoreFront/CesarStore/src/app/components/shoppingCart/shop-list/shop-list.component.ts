@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/Product';
 import { DataService } from 'src/app/services/data.service';
-import { Image } from 'src/app/models/Image';
-import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { Purchase } from 'src/app/models/Purchase';
 import { User } from 'src/app/models/User';
+import { Product } from 'src/app/models/Product';
+
 
 @Component({
   selector: 'app-shop-list',
@@ -12,34 +11,34 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./shop-list.component.sass']
 })
 export class ShopListComponent implements OnInit {
-  public shopping_cart:Array<Purchase> = new Array<Purchase>();
   public user:User = new User();
-  public cantidadTotal:number;
-  public totalAPagar:number = 0;
+  // public purchases:Array<Purchase> = new Array<Purchase>();
+  public products:Array<Product> = new Array<Product>();
+  public totalAPagar:number = 0.0;
   public cantidadAComprar:number = 0;
   // public compra:number;
   constructor(){
     if(localStorage.getItem("User")){
       this.user = JSON.parse(localStorage.getItem("User"));
+      this.products = this.user.purchase.prod_details;
     }else{
       this.user.user_role = 3;
       this.user.user_name = "Invitado";
-      this.user.purchases_list = new Array<Purchase>();
+      this.user.purchase = new Purchase();
     }
-    this.shopping_cart = this.user.purchases_list;
-    console.log("[ShopListComponent|constructor] user:");
-    console.log(this.user);
-    console.log("[ShopListComponent|constructor] shopping_cart:");
-    console.log(this.shopping_cart);
-    if(this.shopping_cart.length !==0){
-      this.shopping_cart.forEach((purchase)=>{
-        this.totalAPagar = this.totalAPagar + purchase.purch_totalPay;
+    if(this.products.length !== 0){
+      this.products.forEach((product)=>{
+        this.totalAPagar = this.totalAPagar + product.prod_price;
       });
-      this.cantidadAComprar = this.shopping_cart.length;
+      this.cantidadAComprar = this.products.length;
     }else{
       this.totalAPagar = 0;
       this.cantidadAComprar = 0;
     }
+    console.log("[ShopListComponent|constructor] user:");
+    console.log(this.user);
+    console.log("[ShopListComponent|constructor] products:");
+    console.log(this.products);
   }
 
   ngOnInit(){
@@ -48,11 +47,11 @@ export class ShopListComponent implements OnInit {
 
   operation(i:number, value:boolean){
     if(value){
-      this.shopping_cart[i].purch_amount++;
+      this.products[i].prod_amount++;
     }else{
-      this.shopping_cart[i].purch_amount--;
-      if(this.shopping_cart[i].purch_amount<0){
-        this.shopping_cart[i].purch_amount=0;
+      this.products[i].prod_amount--;
+      if(this.products[i].prod_amount<0){
+        this.products[i].prod_amount=0;
       }
     }
     this.procesar(i);
@@ -61,14 +60,14 @@ export class ShopListComponent implements OnInit {
   procesar(index:number){
     this.totalAPagar = 0;
     this.cantidadAComprar = 0;
-    this.shopping_cart.forEach((purchase, i)=>{
+    this.products.forEach((product, i)=>{
       if(index === i){
-        purchase.purch_totalPay = purchase.purch_amount * purchase.purch_price;
-        purchase.purch_totalPay = Math.round(purchase.purch_totalPay * 100) / 100;
+        product.prod_totalPay = product.prod_amount * product.prod_price;
+        product.prod_totalPay = Math.round(product.prod_totalPay * 100) / 100;
       }
-      this.totalAPagar = this.totalAPagar + purchase.purch_totalPay;
+      this.totalAPagar = this.totalAPagar + product.prod_totalPay;
       this.totalAPagar = Math.round(this.totalAPagar * 100) / 100;
-      this.cantidadAComprar = this.cantidadAComprar + purchase.purch_amount;
+      this.cantidadAComprar =  this.cantidadAComprar + product.prod_amount;
       this.cantidadAComprar = Math.round(this.cantidadAComprar * 100) / 100;
     });
 
@@ -76,21 +75,20 @@ export class ShopListComponent implements OnInit {
     console.log(this.totalAPagar);
     
     // this.totalAPagar = preciosFinales.reduce(function(a, b){ return a + b; });
-    this.user.purchases_list = this.shopping_cart;
-    console.log("[ShopListComponent|operation] this.user.purchase_list");
-    console.log(this.user.purchases_list);
+    this.user.purchase.prod_details = this.products;
+    console.log("[ShopListComponent|operation] this.products");
+    console.log(this.user.purchase.prod_details);
 
     localStorage.setItem("User",JSON.stringify(this.user));
   }
   
   eliminar(index:number){
-    this.shopping_cart = this.shopping_cart.filter((purchase, i)=>{
+    this.products = this.products.filter((product, i)=>{
       if(index !== i){
-        return purchase;
+        return product;
       }
     });
-    this.user.purchases_list = this.shopping_cart;
+    this.user.purchase.prod_details = this.products;
     localStorage.setItem("User",JSON.stringify(this.user));
-    // this.procesar(index);
   }
 }
