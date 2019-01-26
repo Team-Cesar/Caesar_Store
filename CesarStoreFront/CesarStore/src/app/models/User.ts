@@ -1,5 +1,6 @@
 import { Purchase } from "./Purchase";
 export class User {
+    user_id?:string;
     user_name: string;
     user_lastname: string;
     user_email: string;

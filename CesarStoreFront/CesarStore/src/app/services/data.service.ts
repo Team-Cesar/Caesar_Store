@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Product } from '../models/Product';
 import { Purchase } from '../models/Purchase';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +24,26 @@ export class DataService {
 
   enviarProductos(producto:Product){
     this.product.next(producto);
-    console.log("[dataService|enviarProductos] producto:")
+    console.log("[dataService|enviarProductos] producto:");
     console.log(producto);
   }
 
+  obtenerUsuario(id):Observable<any>{
+    return this._http.get('http://localhost:3000/user/'+id);
+  }
+
+  registrarUsuario(user:User):Observable<any>{
+    return this._http.post('http://localhost:3000/user',user)
+  }
+
   // registrarCompra(purchase:Purchase):Observable<any>{
-  registrarCompra(username:string, purchases:Array<Purchase>):void{
-    console.log("DataService|registrarCompra|id, purchases");
-    console.log(username, purchases);
-    // return this._http.post('http://localhost:3000/putPurchases',purchase);
+  registrarCompra(id:string, purchase:Purchase):Observable<any>{
+    console.log("DataService|registrarCompra|id, purchase");
+    console.log(id, purchase);
+    let data = {
+      purchase,
+      id
+    }
+    return this._http.post('http://localhost:3000/user',data);
   }
 }

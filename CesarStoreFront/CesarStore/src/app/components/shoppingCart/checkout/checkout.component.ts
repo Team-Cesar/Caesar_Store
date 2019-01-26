@@ -21,6 +21,7 @@ export class CheckoutComponent implements OnInit {
 
   public payPalConfig?: PayPalConfig;
   public mensaje:string;
+  
   constructor(private _router:Router,
               private _data:DataService) {
 
@@ -136,5 +137,11 @@ export class CheckoutComponent implements OnInit {
     // this._data.registrarCompra(this.user.user_name,this.purchases);
     console.log("CheckOutComponent|comprar|user");
     console.log(this.user);
+
+    this._data.registrarCompra(this.user.user_id, this.user.purchase).subscribe((response)=>{
+      console.log("checkOutComponent|comprar|registrarCompra|response");
+      console.log(response);
+      // this._router.navigateByUrl('/thanks');
+    });
   }
 }

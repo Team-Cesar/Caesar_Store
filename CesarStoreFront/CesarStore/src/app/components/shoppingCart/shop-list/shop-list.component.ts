@@ -4,7 +4,6 @@ import { Purchase } from 'src/app/models/Purchase';
 import { User } from 'src/app/models/User';
 import { Product } from 'src/app/models/Product';
 
-
 @Component({
   selector: 'app-shop-list',
   templateUrl: './shop-list.component.html',
@@ -12,31 +11,36 @@ import { Product } from 'src/app/models/Product';
 })
 export class ShopListComponent implements OnInit {
   public user:User = new User();
+  public purchases = new Array<Purchase>();
   // public purchases:Array<Purchase> = new Array<Purchase>();
-  public products:Array<Product> = new Array<Product>();
+  public products:Array<Product>;
   public totalAPagar:number = 0.0;
   public cantidadAComprar:number = 0;
   // public compra:number;
-  constructor(){
+  constructor(private _dataService:DataService){
     if(localStorage.getItem("User")){
       this.user = JSON.parse(localStorage.getItem("User"));
-      this.products = this.user.purchase.prod_details;
     }else{
       this.user.user_role = 3;
       this.user.user_name = "Invitado";
       this.user.purchase = new Purchase();
     }
-    if(this.products.length !== 0){
+    console.log("[ShopListComponent|constructor] user:");
+    console.log(this.user);
+
+    this.products = this.user.purchase.prod_details;
+    if(this.products != null){
       this.products.forEach((product)=>{
         this.totalAPagar = this.totalAPagar + product.prod_price;
       });
       this.cantidadAComprar = this.products.length;
     }else{
+      this.products = new Array<Product>();
       this.totalAPagar = 0;
       this.cantidadAComprar = 0;
     }
-    console.log("[ShopListComponent|constructor] user:");
-    console.log(this.user);
+    // console.log("[ShopListComponent|constructor] user:");
+    // console.log(this.user);
     console.log("[ShopListComponent|constructor] products:");
     console.log(this.products);
   }

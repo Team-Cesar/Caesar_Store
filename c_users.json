@@ -10,22 +10,25 @@
         {
             "id": "ObjectId",
             "purchase_date":"Date",
-            "purchase_details":{
-                "send_dates":{
-                    "send_company":"string",
-                    "send_country":"string",
-                    "send_street":"string",
-                    "send_state":"string",
-                    "send_phone":"string",
-                    "send_zip":"string"
-                },
-                "purchase_dates":{
-                    "purch_prod": "string",
-                    "purch_currency": "string",
-                    "purch_price": "double",
-                    "purch_state": "string",
-                    "purch_amount": "number"
-                }
+            "send_details":{
+                "send_name":"string",
+                "send_lastname":"string",
+                "send_company":"string",
+                "send_country":"string",
+                "send_city":"string",
+                "send_street":"string",
+                "send_state":"string",
+                "send_phone":"string",
+                "send_zip":"string"
+            },
+            "prod_details":{
+                "prod_name": "string",
+                "prod_image": "string",
+                "prod_currency": "string",
+                "prod_price": "number",
+                "prod_state": "string",
+                "prod_amount": "number",
+                "prod_totalPay": "number",
             }
         }
     ]
