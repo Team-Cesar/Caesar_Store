@@ -7,10 +7,12 @@ import { User } from 'src/app/models/User';
   styles: []
 })
 export class HeaderComponent {
-  public user:User = new User();
+/*   public user:User = new User();
   public email:string;
   constructor() {
     this.user = JSON.parse(localStorage.getItem('User'));
-    this.email = this.user.user_email;
-  }
+    this.email = this.user.user_email; */
+  /* } */
 }
+
+
