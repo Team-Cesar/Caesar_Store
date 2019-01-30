@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
+import { Purchase } from '../models/Purchase';
+
 
 // interfaces 
 export interface UserDetails{
@@ -33,6 +35,8 @@ interface TokenResponse{
 })
 export class AuthService {
   private token:string;
+  public user:User = new User();
+  
   constructor(private http:HttpClient, private router:Router) { }
 
   // metodos
@@ -114,6 +118,6 @@ export class AuthService {
   public logout(): void {
     this.token = '';
     localStorage.removeItem('token');
-    this.router.navigateByUrl('/');
+    
   }
 }

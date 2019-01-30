@@ -34,7 +34,8 @@ mongoose.connect('mongodb://localhost:27017/CesarStore')
     .then(db => console.log('Db connected'))
     .catch(err => console.log(err));
 // importing routes
-const indexRoutes = require('./routes/index');
+// const indexRoutes = require('./routes/index');
+const indexRoutes = require('./routes/index_v2');
 
 // middlewares
 app.use(morgan('dev'));

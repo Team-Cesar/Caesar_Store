@@ -68,6 +68,10 @@
                 Bienvenido:  <label class="badge badge-danger" for="">{{email}}</label>
             </li>
 
+            <li class="nav-item text-white d-flex align-items-center" *ngIf="email != null">
+                <button class="btn btn-danger p-1" (click)="logout()">Salir</button>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-item nav-link" [routerLink]="['/shop-list']">
                     <img src="./././assets/Imagenes/carritoCompras2.png" width="30" height="30" alt="">
