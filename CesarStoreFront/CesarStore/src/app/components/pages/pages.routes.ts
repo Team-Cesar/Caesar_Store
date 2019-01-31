@@ -8,6 +8,7 @@ import { CelularesComponent } from './celulares/celulares.component';
 import { PagesComponent } from './pages.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { HomeComponent } from './home/home.component';
+import { PrecompraComponent } from './precompra/precompra.component';
 
 
 
@@ -21,6 +22,7 @@ const pagesRoutes: Routes = [
         { path: 'camaras', component: CamarasComponent },
         { path: 'tablets', component: TabletsComponent },
         { path: 'nopagefound', component: NopagefoundComponent },
+        { path: 'compra', component: PrecompraComponent },
         { path: 'home', component: HomeComponent },
         { path: '', redirectTo: '/home', pathMatch: 'full' },
         ]

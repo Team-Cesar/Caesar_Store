@@ -52,6 +52,7 @@ a:focus{
 #sidebar ul li a:hover {
     color: black;
     background: #fff;
+   
 }
 
 #sidebar ul li.active>a,
@@ -74,7 +75,10 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
         background: black;
-    }
+}
+
+
+
 
 
 

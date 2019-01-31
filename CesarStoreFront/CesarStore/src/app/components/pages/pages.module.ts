@@ -15,6 +15,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RedesComponent } from './redes/redes.component';
 import { SidevarrogComponent } from './sidevarrog/sidevarrog.component';
+import { PrecompraComponent } from './precompra/precompra.component';
 
 
 
@@ -32,7 +33,8 @@ NopagefoundComponent,
 TabletsComponent,
 PagesComponent,
 RedesComponent,
-SidevarrogComponent
+SidevarrogComponent,
+PrecompraComponent
 
 ],
 exports: [

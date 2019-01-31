@@ -8,9 +8,7 @@ import { User } from 'src/app/models/User';
 })
 export class HomeComponent implements OnInit {
   // public user:User = new User();
-  constructor() { 
-    // this.user = 
-  }
+  constructor() {}
 
   ngOnInit() {
   }
