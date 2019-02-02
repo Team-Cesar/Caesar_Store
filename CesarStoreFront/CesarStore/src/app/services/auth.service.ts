@@ -10,6 +10,7 @@ import { Purchase } from '../models/Purchase';
 // interfaces 
 export interface UserDetails{
   _id:string;
+  user_username:string;
   user_name:string;
   user_lastname:string;
   user_email:string;
@@ -19,9 +20,10 @@ export interface UserDetails{
 }
 
 export interface TokenPayload{
+  user_username:string;
   user_name?:string;
   user_lastname?:string;
-  user_email:string;
+  user_email?:string;
   user_pass:String;
   pass_conf?:String;
 }
@@ -30,9 +32,7 @@ interface TokenResponse{
   token:string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
   private token:string;
   public user:User = new User();
@@ -58,6 +58,8 @@ export class AuthService {
     if (token) {
       payload = token.split('.')[1];
       payload = window.atob(payload);
+      console.log("authService|getUserDetails|payload");
+      console.log(payload);
       return JSON.parse(payload);
     } else {
       return null;

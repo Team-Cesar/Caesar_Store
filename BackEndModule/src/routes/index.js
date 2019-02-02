@@ -69,155 +69,48 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
-
-
 // crear usuario o actualizar compra a usuario
 router.post('/user', (req, res) => {
     console.log("index|user|findOne|req.body");
     console.log(req.body);
     let requerimiento = req.body;
-    User.findOne({ _id: requerimiento.id }, (err, response) => {
+    User.findOne({ user_username: requerimiento.user_username }, (err, response) => {
         console.log("index|user|findOne|response");
         console.log(response);
-    //     if(err){
-    //         console.log(err);
-    //     }
+
         if (response == null) {
             var user = new User();
+            user.user_username = requerimiento.user_username;
             user.user_name = requerimiento.user_name;
             user.user_lastname = requerimiento.user_lastname;
             user.user_email = requerimiento.user_email;
             user.user_role = 3;
+            user_user_status = 'Active';
             user.purchase_list = new Array();
             user.setPassword(requerimiento.user_pass);
             var token = user.generateJwt();
 
-            // let purchase = new Purchase();
-            // purchase.purchase_date = new Date();
-
-            // purchase.send_details.send_name = requerimiento.send_name;
-            // purchase.send_details.send_lastname = requerimiento.send_lastname;
-            // purchase.send_details.send_company = requerimiento.send_company;
-            // purchase.send_details.send_country = requerimiento.send_country;
-            // purchase.send_details.send_city = requerimiento.send_city;
-            // purchase.send_details.send_street = requerimiento.send_street;
-            // purchase.send_details.send_state = requerimiento.send_state;
-            // purchase.send_details.send_phone = requerimiento.send_phone;
-            // purchase.send_details.send_zip = requerimiento.send_zip;
-
-            // purchase.prod_details.prod_name = requerimiento.prod_name;
-            // purchase.prod_details.prod_image = requerimiento.prod_image;
-            // purchase.prod_details.prod_currency = requerimiento.prod_currency;
-            // purchase.prod_details.prod_price = requerimiento.prod_price;
-            // purchase.prod_details.prod_state = requerimiento.prod_state;
-            // purchase.prod_details.prod_amount = requerimiento.prod_amount;
-            // purchase.prod_details.prod_totalPay = requerimiento.prod_totalPay;
-
-            // user.purchases_list.push(purchase);
-
             console.log("index|user|findOne| user");
             console.log(user);
 
-            // res.status(200);
-            // res.json({"token" : token});
-
-        } else {
-            var user = response;
-
-            let purchase = new Purchase();
-            purchase.purchase_date = new Date();
-
-            purchase.send_details.send_name = requerimiento.purchase.send_details.send_name;
-            purchase.send_details.send_lastname = requerimiento.purchase.send_details.send_lastname;
-            purchase.send_details.send_company = requerimiento.purchase.send_details.send_company;
-            purchase.send_details.send_country = requerimiento.purchase.send_details.send_country;
-            purchase.send_details.send_city = requerimiento.purchase.send_details.send_city;
-            purchase.send_details.send_street = requerimiento.purchase.send_details.send_street;
-            purchase.send_details.send_state = requerimiento.purchase.send_details.send_state;
-            purchase.send_details.send_phone = requerimiento.purchase.send_details.send_phone;
-            purchase.send_details.send_zip = requerimiento.purchase.send_details.send_zip;
-
-            requerimiento.purchase.prod_details.forEach((product)=>{
-                let data = {
-                    prod_name: product.prod_name,
-                    prod_image: product.prod_image, 
-                    prod_currency: product.prod_currency, 
-                    prod_price: product.prod_price,
-                    prod_state: product.prod_state, 
-                    prod_totalPay: product.prod_totalPay
+            user.save((err, saved) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send({ Error: "Error 500 saving user" });
                 }
-                
-                // let {prod_name, prod_image, prod_currency, prod_price, prod_state, prod_amount, prod_totalPay } = product;
-                purchase.prod_details.push(data);
+                if (!saved) {
+                    return res.status(404).send({ Error: "Error 404 saving user" });
+                }
+                return res.status(200).send(saved);
             });
-            // purchase.prod_details.prod_name = requerimiento.purchase.prod_details.prod_name;
-            // purchase.prod_details.prod_image = requerimiento.purchase.prod_details.prod_image;
-            // purchase.prod_details.prod_currency = requerimiento.purchase.prod_details.prod_currency;
-            // purchase.prod_details.prod_price = requerimiento.purchase.prod_details.prod_price;
-            // purchase.prod_details.prod_state = requerimiento.purchase.prod_details.prod_state;
-            // purchase.prod_details.prod_amount = requerimiento.purchase.prod_details.prod_amount;
-            // purchase.prod_details.prod_totalPay = requerimiento.purchase.prod_details.prod_totalPay;
-
-            user.purchases_list.push(purchase);
-            console.log("index|user|findOne| purchase");
-            console.log(purchase);
+        }else{
+            return res.status(500).json({Error: "Error 500 usuario ya existe"});
+            console.log("index|user|findOne|else|mensajeError");
+            console.log("Usuario ya registrado");
         }
-        user.save((err, saved) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).send({ Error: "Error 500 saving user" });
-            }
-            if (!saved) {
-                return res.status(404).send({ Error: "Error 404 saving user" });
-            }
-            return res.status(200).send(saved);
-        });
     });
 });
 
-// añadir compra usuario
-// router.post('/user/:id', (req, res) => {
-//     let requerimiento = req.body;
-//     let { id } = req.params;
-//     User.findById(id, (err, response) => {
-//         var user = response;
-
-//         let purchase = new Purchase();
-//         purchase.purchase_date = new Date();
-
-//         purchase.send_details.send_name = requerimiento.send_name;
-//         purchase.send_details.send_lastname = requerimiento.send_lastname;
-//         purchase.send_details.send_company = requerimiento.send_company;
-//         purchase.send_details.send_country = requerimiento.send_country;
-//         purchase.send_details.send_city = requerimiento.send_city;
-//         purchase.send_details.send_street = requerimiento.send_street;
-//         purchase.send_details.send_state = requerimiento.send_state;
-//         purchase.send_details.send_phone = requerimiento.send_phone;
-//         purchase.send_details.send_zip = requerimiento.send_zip;
-
-//         purchase.prod_details.prod_name = requerimiento.prod_name;
-//         purchase.prod_details.prod_image = requerimiento.prod_image;
-//         purchase.prod_details.prod_currency = requerimiento.prod_currency;
-//         purchase.prod_details.prod_price = requerimiento.prod_price;
-//         purchase.prod_details.prod_state = requerimiento.prod_state;
-//         purchase.prod_details.prod_amount = requerimiento.prod_amount;
-//         purchase.prod_details.prod_totalPay = requerimiento.prod_totalPay;
-
-//         user.purchases_list.push(purchase);
-//         console.log("index|user|findOne| user");
-//         console.log(user);
-//         user.save((err, saved) => {
-//             if (err) {
-//                 console.log(err);
-//                 return res.status(500).send({ Error: "Error 500 saving user" });
-//             }
-//             if (!saved) {
-//                 return res.status(404).send({ Error: "Error 404 saving user" });
-//             }
-//             return res.status(200).send(saved);
-//         });
-//     })
-// });
 
 // eliminar usuario o tarea
 router.delete('/user/:id', (req, res) => {

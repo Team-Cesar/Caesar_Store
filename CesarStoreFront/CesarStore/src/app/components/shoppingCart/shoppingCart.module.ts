@@ -7,7 +7,7 @@ import { PostPurchaseComponent } from "./post-purchase/post-purchase.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { ShopListComponent } from "./shop-list/shop-list.component";
 import { SHOPPING_ROUTES } from './shoppingCart.routes';
-import { NgxPayPalModule } from 'ngx-paypal';
+// import { NgxPayPalModule } from 'ngx-paypal';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
         HttpClientModule,
         BrowserModule,
-        NgxPayPalModule
+        // NgxPayPalModule
     ]
     })
     export class ShoppingModule { }

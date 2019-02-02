@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { CamarasComponent } from './camaras/camaras.component';
@@ -15,7 +15,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RedesComponent } from './redes/redes.component';
 import { SidevarrogComponent } from './sidevarrog/sidevarrog.component';
+import { FormsModule } from '@angular/forms';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from 'src/app/services/auth.service';
+import { DataService } from 'src/app/services/data.service';
 
 
 
@@ -48,7 +53,13 @@ PagesComponent
 imports: [
     BrowserModule,
     PAGES_ROUTES,
-    RouterModule
-]
+    RouterModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
+],
+providers: [AuthService, DataService],
+bootstrap: [HeaderComponent],
+schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class PagesModule { }
