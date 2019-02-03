@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css?family=Economica');
-
 body {
     margin: 0%;
     font-family: 'Economica', sans-serif;
 }
 
-h3 {
+
+/* h3 {
     font-size: 50px;
 }
 
@@ -17,14 +17,13 @@ h5 {
 
 p {
     font-size: 20px;
-}
+} */
 
 @media (max-width: 765px) {
     #s {
         margin-top: 4rem;
         width: 330px;
         margin-bottom: 10rem;
-       
     }
     .s {
         margin-left: 2rem;
@@ -63,4 +62,3 @@ p {
         box-shadow: 7px 11px 29px -4px rgba(0, 0, 0, 0.32);
     }
 }
-  
