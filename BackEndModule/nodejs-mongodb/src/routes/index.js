@@ -6,6 +6,7 @@ const passport = require('passport');
 // Modelos de usuario
 const User = require('../models/Users/user');
 const Purchase = require('../models/Users/purchase');
+// const Product = require('../models/product');
 
 // modelos de productos
 const Task = require('../models/task');
@@ -67,6 +68,8 @@ router.get('/user/:id', (req, res) => {
         return res.status(200).json(user);
     });
 });
+
+
 
 // crear usuario o actualizar compra a usuario
 router.post('/user', (req, res) => {
@@ -156,8 +159,8 @@ router.post('/user', (req, res) => {
             // purchase.prod_details.prod_totalPay = requerimiento.purchase.prod_details.prod_totalPay;
 
             user.purchases_list.push(purchase);
-            console.log("index|user|findOne| user");
-            console.log(user);
+            console.log("index|user|findOne| purchase");
+            console.log(purchase);
         }
         user.save((err, saved) => {
             if (err) {
@@ -229,6 +232,116 @@ router.delete('/user/:id', (req, res) => {
     });
 });
 
+// eiminar producto
+router.put('/product/:id',(req,res)=>{
+    let {id} = req.params;
+    // let { prod_name  } = req.body;
+
+    console.log("index|put|product|req.body");
+    console.log(req.body);
+    console.log("index|put|product|id");
+    console.log(id);
+    
+    User.findById(id, async (err,response)=>{
+        console.log("index|put|findById|response");
+        console.log(response);
+        var user = response;
+        user.user_lastname = req.body.user_lastname;
+        // user.purchases_list[0].purchase_date = new Date();
+        
+        console.log("index|put|findById|purchase_date");
+        console.log(user.purchases_list[0].purchase_date);
+
+        User.findByIdAndDelete(id,(err,response)=>{
+            console.log("index|findById|findByIdAndDelete|response");
+            console.log(response);
+            
+            let new_user = new User();
+            new_user = user;
+            new_user.purchases_list[0].purchase_date = new Date();
+            
+            new_user.save((err, saved) => {
+                console.log("index|findById|findByIdAndDelete|save|saved");
+                console.log(saved);
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send({ Error: "Error 500 saving user" });
+                }
+                if (!saved) {
+                    return res.status(404).send({ Error: "Error 404 saving user" });
+                }
+                return res.status(200).send(saved);
+            },{w:1});
+        });
+        // user.pre("save", function(next) {
+        //     if(!this.trial){
+        //         //do your job here
+        //         next();
+        //     }
+        // }
+        // await user.save((err, saved) => {
+        //     console.log("index|put|findById|save|saved");
+        //     console.log(saved.purchases_list[0].purchase_date);
+        //     if (err) {
+        //         console.log(err);
+        //         return res.status(500).send({ Error: "Error 500 saving user" });
+        //     }
+        //     if (!saved) {
+        //         return res.status(404).send({ Error: "Error 404 saving user" });
+        //     }
+        //     return res.status(200).send(saved);
+        // },{w:1});
+    });
+    // User.findOneAndUpdate(
+    //     { _id: id },
+    //     { $pull: { purchases_list: { prod_details: { _id : req.body.prod_name } } } },
+    //     (err, response)=>{
+    //         if(err){
+    //             console.log("index|put|product|update|err");
+    //             console.log(err);
+    //         }
+    //         console.log("index|put|product|update|response");
+    //         console.log(response); 
+    //     }
+    //   );
+});
+
+// eliminar compra
+router.delete('/purchase',(req,res)=>{
+    console.log("index|delete|req.body");
+    console.log(req.body);
+    // let {user_id, purch_id, prod_id} = req.body;
+    let {user_id, purch_index, prod_index} = req.body;
+    User.findOne({_id:user_id},(err, response)=>{
+        if(err){
+            console.log("index|delete|findOne|err");
+            console.log(err);
+        }
+        console.log("index|delete|findOne|response");
+        console.log(response);
+
+        var user = response;
+        user.purchases_list[purch_index].purchase_date = new Date();
+        user.purchases_list[purch_index].prod_details.splice(prod_index,1);
+
+        user.save((err, saved) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ Error: "Error 500 saving user" });
+            }
+            if (!saved) {
+                return res.status(404).send({ Error: "Error 404 saving user" });
+            }
+            return res.status(200).send(saved);
+        });
+    });
+
+    // User.update(
+    //     {"_id": user_id, "purchases_list._id": purch_id },
+    //     { $pull: { "purchases_list.$.prod_details" : { "_id": prod_id } } }
+    //   );
+});
+
 // Actualizar usuario
 router.put('/user/:id', (req, res) => {
     let { id } = req.params;
@@ -239,6 +352,7 @@ router.put('/user/:id', (req, res) => {
         console.log(response);
         return res.status(200).json(response);
     });
+    
 });
 
 

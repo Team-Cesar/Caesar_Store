@@ -30,11 +30,13 @@ app.use(bodyParser.json());
 
 // Conexion a base de datos
 // mongoose.connect('mongodb+srv://caesar_store:qFkKUQsB4uCxK9wy@cluster0-9ay4b.azure.mongodb.net/caesar_store?retryWrites=true')
-mongoose.connect('mongodb://localhost:27017/CesarStore')
+// mongoose.connect('mongodb://localhost:27017/CesarStore')
+mongoose.connect('mongodb://caesar:caesar5@ds129670.mlab.com:29670/db-caesar-store')
     .then(db => console.log('Db connected'))
     .catch(err => console.log(err));
 // importing routes
-const indexRoutes = require('./routes/index');
+// const indexRoutes = require('./routes/index');
+const indexRoutes = require('./routes/index_v2');
 
 // middlewares
 app.use(morgan('dev'));
