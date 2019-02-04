@@ -14,13 +14,14 @@ import { Celulares1Component } from './pagesAdmin/celulares1/celulares1.componen
 import { Celular1Component } from './pagesAdmin/celulares1/celular1.component';
 import { Tablets1Component } from './pagesAdmin/tablets1/tablets1.component';
 import { Tablet1Component } from './pagesAdmin/tablets1/tablet1.component';
+import { ModuleWithProviders } from '@angular/core';
 
 const adminRoutes: Routes = [
     {
         path: '',
         component: AdminComponent,
         children: [
-            { path: 'celular1', component: Celular1Component },
+            { path: 'celular/:id', component: Celular1Component },
             { path: 'celulares1', component: Celulares1Component },
             { path: 'tablets1', component: Tablet1Component },
             { path: 'tablet1', component: Tablets1Component },
@@ -37,4 +38,4 @@ const adminRoutes: Routes = [
 // tslint:disable-next-line:eofline
 ];
 
-export const ADMIN_ROUTES = RouterModule.forChild( adminRoutes );
+export const ADMIN_ROUTES: ModuleWithProviders = RouterModule.forChild( adminRoutes );

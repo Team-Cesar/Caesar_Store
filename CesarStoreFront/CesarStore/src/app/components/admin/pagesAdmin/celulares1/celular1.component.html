@@ -1,0 +1,42 @@
+<h3>Celular <small>{{ celular.nombre}}</small></h3>
+<hr>
+<button (click)="agregarNuevo(forma)" type="button" class="btn btn-outline-success w120 marginbutton">Nuevo Celular</button>
+<button [routerLink]="['/celulares1']" class="btn btn-outline-danger w120">Regresar</button>
+<br>
+<div class="">
+    <div class="col-md-12">
+        <form (ngSubmit)="guardar()" #forma="ngForm">
+            <div class="form-group">
+                <label>Marca</label>
+                <select [(ngModel)]="celular.marca" name="marca" class="form-control">
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Motorola">Motorola</option>
+                            <option value="Nokia">Nokia</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="LG">LG</option>
+        
+                        </select>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input [(ngModel)]="celular.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del Celular" required>
+            </div>
+            <div class="form-group">
+                <label>Cantidad</label>
+                <input [(ngModel)]="celular.cantidad" name="cantidad" type="number" class="form-control" placeholder="Nro" required>
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input [(ngModel)]="celular.precio" name="precio" type="number" class="form-control" placeholder="S/" required>
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">Ingresar</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Celular } from '../../interfaces/celular.interface';
+import { CelularesService } from '../../services/celulares.service';
 
 @Component({
   selector: 'app-celulares1',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Celulares1Component implements OnInit {
 
-  constructor() { }
+  celulares: Celular;
+  loading: boolean = true;
 
-  ngOnInit() {
-  }
+   constructor( private _celularesService: CelularesService) {
 
-}
+       this._celularesService.getCelulares()
+           .subscribe( data => {
+            this.celulares = data;
+            this.loading = false;
+           });
+   }
+
+   ngOnInit() {
+   }
+   borrarCelular(key$) {
+     this._celularesService.borrarCelular(key$)
+     .subscribe( respuesta => {
+       if ( respuesta) {
+         console.error(respuesta);
+       } else {
+         // todo bien
+         delete this.celulares[key$];
+       }
+     });
+   }
+ }
+

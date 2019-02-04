@@ -12,11 +12,9 @@ import { AdminModule } from './components/admin/admin.module';
 
 
 
-
 // FRONT-OMAR
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AdminComponent } from './components/admin/admin.component';
 
 
 // FRONT-ROGELIO
@@ -27,21 +25,8 @@ import { TabletComponent } from './components/body/tablet/tablet.component';
 import { CameraComponent } from './components/body/camera/camera.component';
 
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { NgSelectMultipleOption } from '@angular/forms/src/directives';
+import { APP_ROUTING } from './app.routes';
 
-
-const routes: Routes = [
-
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'admin', component: AdminComponent },
-
-  { path: 'home', component: BodyComponent },
-  { path: 'phone', component: PhoneComponent },
-  { path: 'tablet', component: TabletComponent },
-  { path: 'camera', component: CameraComponent },
-  { path: 'cart', component: CameraComponent },
-]
 
 @NgModule({
   declarations: [
@@ -55,7 +40,6 @@ const routes: Routes = [
     PhoneComponent,
     TabletComponent,
     CameraComponent,
-   
     CarritoComponent
   ],
   imports: [
@@ -64,7 +48,8 @@ const routes: Routes = [
     PagesModule,
     ShoppingModule,
     AdminModule,
-    RouterModule.forRoot(routes)
+    APP_ROUTING,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
