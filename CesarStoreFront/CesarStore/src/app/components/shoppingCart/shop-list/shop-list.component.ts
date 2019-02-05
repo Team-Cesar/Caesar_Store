@@ -16,6 +16,16 @@ export class ShopListComponent implements OnInit {
   public products:Array<Product>;
   public totalAPagar:number = 0.0;
   public cantidadAComprar:number = 0;
+
+  public productosFiltrados: Product[] = [];
+  _listFilter = '';
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.productosFiltrados = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+  }
   // public compra:number;
   constructor(private _dataService:DataService){
     if(localStorage.getItem("User")){
@@ -94,5 +104,11 @@ export class ShopListComponent implements OnInit {
     });
     this.user.purchase.prod_details = this.products;
     localStorage.setItem("User",JSON.stringify(this.user));
+  }
+
+  performFilter(filterBy: string): Product[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: Product) =>
+      product.prod_name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 }
