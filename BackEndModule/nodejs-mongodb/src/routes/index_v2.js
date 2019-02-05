@@ -52,9 +52,53 @@ router.post('/create-user', (req, res) => {
         user_name,
         user_lastname,
         user_email,
-        user_role: 3,
+        user_role : 3,
         user_status: 'Activo',
         purchases_list: []
+    });
+    user.setPassword(user_pass);
+
+    Usuario.findOne({user_username}, (req, usuario) => {
+        if (usuario == null) {
+            console.log('Usuarios|find|usuario');
+            console.log(usuario);
+            var usuario = new Usuario();
+            usuario = user;
+        } else {
+            var usuario = usuario;
+            console.log('Usuarios|find|usuarios');
+            console.log(usuario);
+        }
+
+        usuario.save((err, usuario) => {
+            console.log('usuario|agregarUsuario|find|else|save|usuario');
+            console.log(usuario);
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ Error: "Error 500 saving user" });
+            }
+            if (!usuario) {
+                return res.status(404).send({ Error: "Error 404 saving user" });
+            }
+            var token;
+            oken = user.generateJwt();
+            return res.status(200).send(usuario);
+        });
+    });
+});
+
+// CREAR ADMIN Y/O OPERADOR
+router.post('/create-admin-operator', (req, res) => {
+    console.log("index|user|post|req.body");
+    console.log(req.body);
+    let { user_username, user_name, user_lastname, user_email, user_pass, user_role} = req.body;
+    let user = new Usuario({
+        user_username,
+        user_name,
+        user_lastname,
+        user_email,
+        user_role,
+        user_status: 'Activo'
     });
     user.setPassword(user_pass);
 

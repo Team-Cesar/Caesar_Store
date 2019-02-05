@@ -18,22 +18,8 @@ export class DataService {
 
   constructor(private _http:HttpClient) { }
 
-  // changeMessage(message:string){
-  //   this.messageSource.next(message);
-  // }
-
-  enviarProductos(producto:Product){
-    this.product.next(producto);
-    console.log("[dataService|enviarProductos] producto:");
-    console.log(producto);
-  }
-
   obtenerUsuario(id):Observable<any>{
-    return this._http.get('http://localhost:3000/user/'+id);
-  }
-
-  registrarUsuario(user:User):Observable<any>{
-    return this._http.post('http://localhost:3000/user',user)
+    return this._http.get('http://localhost:3000/get-user/'+id);
   }
 
   // registrarCompra(user_username:string, purchase:Purchase):void{
@@ -44,6 +30,6 @@ export class DataService {
       purchase,
       user_username
     }
-    return this._http.post('http://localhost:3000/push-purchase',data);
+    return this._http.post('https://user-purchases-api.herokuapp.com/push-purchase',data);
   }
 }

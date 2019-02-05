@@ -58,8 +58,8 @@ export class AuthService {
     if (token) {
       payload = token.split('.')[1];
       payload = window.atob(payload);
-      console.log("authService|getUserDetails|payload");
-      console.log(payload);
+      // console.log("authService|getUserDetails|payload");
+      // console.log(payload);
       return JSON.parse(payload);
     } else {
       return null;
@@ -75,20 +75,13 @@ export class AuthService {
     }
   }
 
-  public testUsername(username:string):Observable<any>{
-    return this.http.post('http://localhost:3000/testUsername',{username});
-    // return this.http.post(this.uri+'api/testUsername',{username});
-  }
-
-  private request(method: 'post'|'get', type: 'register'|'login'|'profile', user?: TokenPayload): Observable<any> {
+  private request(type: 'register'|'login', user?: TokenPayload): Observable<any> {
     let base;
 
     if (type === 'register'){
-      base = this.http.post('http://localhost:3000/create-user', user);
+      base = this.http.post('https://user-purchases-api.herokuapp.com/create-user', user);
     }else if(type === 'login'){
-      base = this.http.post('http://localhost:3000/login', user);
-    }else{
-      base = this.http.get('http://localhost:3000/profile');
+      base = this.http.post('https://user-purchases-api.herokuapp.com/login', user);
     }
 
     const request = base.pipe(
@@ -104,15 +97,11 @@ export class AuthService {
   }
 
   public register(user: TokenPayload): Observable<any> {
-    return this.request('post', 'register', user);
+    return this.request('register', user);
   }
 
   public login(user: TokenPayload): Observable<any> {
-    return this.request('post', 'login', user);
-  }
-
-  public profile(): Observable<any> {
-    return this.request('get', 'profile');
+    return this.request('login', user);
   }
 
   public logout(): void {

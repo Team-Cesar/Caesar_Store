@@ -15,7 +15,7 @@ export class HeaderComponent {
     user_pass: ''
   };
   public message:string;
-
+  public userProfile:any = '';
   public user:User = new User();
   public isLogged:Boolean;
 
@@ -29,13 +29,6 @@ export class HeaderComponent {
       // console.log("headerComponent|constructor|User");
       // console.log(this.user);
     }
-    const details = JSON.stringify(this._auth.getUserDetails);
-    // const log = this._auth.isLoggedIn;
-    // console.log("headerComponent|constructor|getUserDetails");
-    // console.log(details);
-      
-    // console.log("headerComponent|constructor|isLoggedIn");
-    // console.log(log);
   }
 
   // metodos
@@ -44,6 +37,7 @@ export class HeaderComponent {
     this.isLogged = false;
     let user = new User();
     user.user_username = "";
+    this.userProfile = '';
     user.purchase = new Purchase();
     localStorage.removeItem('User');
     localStorage.setItem('User',JSON.stringify(user));
@@ -51,5 +45,12 @@ export class HeaderComponent {
 
   asignarCompra(){
 
+  }
+
+  DetallesUsuario(){
+    if(this._auth.isLoggedIn()){
+      this.userProfile = this._auth.getUserDetails();
+      // console.log('headerComponent|')
+    }
   }
 }
