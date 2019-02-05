@@ -36,14 +36,14 @@ export class DataService {
     return this._http.post('http://localhost:3000/user',user)
   }
 
-  // registrarCompra(purchase:Purchase):Observable<any>{
-  registrarCompra(id:string, purchase:Purchase):Observable<any>{
+  // registrarCompra(user_username:string, purchase:Purchase):void{
+  registrarCompra(user_username:string, purchase:Purchase):Observable<any>{
     console.log("DataService|registrarCompra|id, purchase");
-    console.log(id, purchase);
+    console.log(user_username, purchase);
     let data = {
       purchase,
-      id
+      user_username
     }
-    return this._http.post('http://localhost:3000/user',data);
+    return this._http.post('http://localhost:3000/push-purchase',data);
   }
 }

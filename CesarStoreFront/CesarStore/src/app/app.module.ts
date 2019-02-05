@@ -27,6 +27,7 @@ import { CameraComponent } from './components/body/camera/camera.component';
 
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { APP_ROUTING } from './app.routes';
+import { DataService } from './services/data.service';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { APP_ROUTING } from './app.routes';
     APP_ROUTING,
     RouterModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

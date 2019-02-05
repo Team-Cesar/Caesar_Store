@@ -46,17 +46,17 @@
                             <td>{{product.prod_name}}</td>
                             <td>
                                 <div class="row d-flex justify-content-center">
-                                    <div class="col col-12 col-sm-3" (click)="operation(i, true)">
+                                    <div class="col col-12 col-sm-3" (click)="operation(i, false)">
                                         <button class="btn btn-dark">
-                                            <i class="fas fa-plus size:2x"></i>
+                                            <i class="fas fa-minus-circle"></i>
                                         </button>
                                     </div>
                                     <div class="col col-12 col-sm-3 text-center">
                                         {{product.prod_amount}}
                                     </div>
-                                    <div class="col col-12 col-sm-3" (click)="operation(i, false)">
+                                    <div class="col col-12 col-sm-3" (click)="operation(i, true)">
                                         <button class="btn btn-dark">
-                                            <i class="fas fa-minus size:2x"></i>
+                                                <i class="fas fa-plus-square"></i>
                                         </button>
                                     </div>
                                 </div>

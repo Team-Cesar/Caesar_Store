@@ -1,151 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>Admin Pro Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="../../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- page css -->
-    <link href="../../../assets/css/pages/login-register-lock.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- You can change the theme colors from here -->
-    <link href="../../../assets/css/colors/default-dark.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
-
-<body>
-
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../../../assets/images/background/login-register.jpg);">
-        <div class="login-box card">
-            <div class="m-auto alert-danger" *ngIf="mensaje != null">
-                {{mensaje}}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="row mt-3 bg-light-primary">
+          <div class="col col-2"></div>
+          <div class="col col-4 d-flex justify-content-start ml-6">
+              <h5>CaesarStore</h5>
             </div>
-            <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" (submit)="registrar()">
-                    <!-- <a href="javascript:void(0)" class="text-center db"><img src="../../../assets/images/logo-icon.png" alt="Home" /><br/><img src="../assets/images/logo-text.png" alt="Home" /></a> -->
-                    <h3 class="box-title m-b-0">Registrate ahora</h3><small>Crea tu cuenta y disfruta</small>
-                    <div class="form-group mt-3">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Username" name="credentials.user_username"
-                                [(ngModel)]="credentials.user_username" required>
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Nombre" name="credentials.user_name"
-                                [(ngModel)]="credentials.user_name" required>
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Apellido" name="credentials.user_lastname"
-                                [(ngModel)]="credentials.user_lastname" required>
-                        </div>
-                    </div>
-                    <!-- <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" name="email_1" [(ngModel)]="email_1" required>
-                        </div>
-                    </div> -->
-
-
-                    <!-- EMAIL -->
-                    <div class="form-group">
-                        <div class="form-row align-items-center">
-                            <div class="col-5">
-                                <input type="text" class="form-control mb-2" placeholder="user" name="email_1" [(ngModel)]="email_1">
-                            </div>
-                            <div class="col-6">
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">@</div>
-                                    </div>
-                                    <input type="text" class="form-control ml-1" placeholder="gmail.com" name="email_2" [(ngModel)]="email_2">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="password" required="" placeholder="Password" name="credentials.user_pass"
-                                [(ngModel)]="credentials.user_pass" required>
-                            <small id="helpId" class="form-text text-muted">Contraseña de al menos 6 digitos</small>
-
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="password" required="" placeholder="Confirm Password" name="credentials.pass_conf"
-                                [(ngModel)]="credentials.pass_conf">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <div class="checkbox checkbox-primary p-t-0">
-                                <input id="checkbox-signup" type="checkbox">
-                                <label for="checkbox-signup"> I agree to all <a href="#">Terms</a></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group text-center mt-3">
-                        <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">REGISTRAR</button>
-                        </div>
-                    </div>
-                    <div class="form-group m-b-0">
-                        <div class="col-sm-12 text-center">
-                            <p>¿Ya tienes una cuenta? <a routerLink="/login" class="text-info m-l-5"><b>INGRESAR</b></a></p>
-                        </div>
-                    </div>
-                </form>
+            <div class="col col-4 d-flex justify-content-end mr-6">
+                <h5>Asesoria telefónica: <i>051-400000</i></h5>
             </div>
+            <div class="col col-2"></div>
         </div>
-    </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $(".preloader").fadeOut();
-        });
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-        // ============================================================== 
-        // Login and Recover Password 
-        // ============================================================== 
-        $('#to-recover').on("click", function () {
-            $("#loginform").slideUp();
-            $("#recoverform").fadeIn();
-        });
-    </script>
-</body>
-
+      <div class="container">
+      <!-- Default form login -->
+          <div class="row">
+              <div class="col col-12 col-xs-10 col-sm-5 m-auto">
+                  <section id="wrapper" class="login-register login-sidebar">
+                      <div class="login-box card">
+                          <div class="m-auto alert-danger" *ngIf="mensaje != null">
+                              {{mensaje}}
+                          </div>
+                          <div class="card-body">
+                              <form class="form-horizontal form-material" id="loginform" (submit)="registrar()">
+                                  <h3 class="box-title m-b-0">Registrate ahora</h3><small>Crea tu cuenta y disfruta</small>
+                                  <div class="form-group mt-3">
+                                      <div class="col-xs-12">
+                                          <input class="form-control" type="text" required="" placeholder="Username" name="credentials.user_username"
+                                              [(ngModel)]="credentials.user_username" required>
+                                      </div>
+                                  </div>
+                                  <div class="form-group ">
+                                      <div class="col-xs-12">
+                                          <input class="form-control" type="text" required="" placeholder="Nombre" name="credentials.user_name"
+                                              [(ngModel)]="credentials.user_name" required>
+                                      </div>
+                                  </div>
+                                  <div class="form-group ">
+                                      <div class="col-xs-12">
+                                          <input class="form-control" type="text" required="" placeholder="Apellido" name="credentials.user_lastname"
+                                              [(ngModel)]="credentials.user_lastname" required>
+                                      </div>
+                                  </div>
+              
+                                  <div class="form-group">
+                                      <div class="form-row align-items-center">
+                                          <div class="col-5">
+                                              <input type="text" class="form-control mb-2" placeholder="Usuario" name="email_1" [(ngModel)]="email_1">
+                                          </div>
+                                          <div class="col-6">
+                                              <div class="input-group mb-2">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text">@</div>
+                                                  </div>
+                                                  <input type="text" class="form-control ml-1" placeholder="gmail.com" name="email_2" [(ngModel)]="email_2">
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+              
+              
+                                  <div class="form-group ">
+                                      <div class="col-xs-12">
+                                          <input class="form-control" type="password" required="" placeholder="Password" name="credentials.user_pass"
+                                              [(ngModel)]="credentials.user_pass" required>
+                                          <small id="helpId" class="form-text text-muted">Contraseña de al menos 6 digitos</small>
+              
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="col-xs-12">
+                                          <input class="form-control" type="password" required="" placeholder="Confirm Password" name="credentials.pass_conf"
+                                              [(ngModel)]="credentials.pass_conf">
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <div class="col-md-12">
+                                          <div class="checkbox checkbox-primary p-t-0">
+                                              <input id="checkbox-signup" type="checkbox">
+                                              <label for="checkbox-signup"> I agree to all <a href="#">Terms</a></label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group text-center mt-3">
+                                      <div class="col-xs-12">
+                                          <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">REGISTRAR</button>
+                                      </div>
+                                  </div>
+                                  <div class="form-group m-b-0">
+                                      <div class="col-sm-12 text-center">
+                                          <p>¿Ya tienes una cuenta? <a routerLink="/login" class="text-info m-l-5"><b>INGRESAR</b></a></p>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+          </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
 </html>

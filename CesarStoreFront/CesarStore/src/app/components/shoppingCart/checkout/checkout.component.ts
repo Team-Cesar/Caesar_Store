@@ -15,7 +15,7 @@ import { Product } from 'src/app/models/Product';
 export class CheckoutComponent implements OnInit {
   public user:User = new User();
   public purchase:Purchase = new Purchase();
-  public purchases:Array<Purchase> = new Array<Purchase>();
+  // public purchases:Array<Purchase> = new Array<Purchase>();
   public products:Array<Product> = new Array<Product>();
   public send:Send = new Send();
 
@@ -138,7 +138,7 @@ export class CheckoutComponent implements OnInit {
     console.log("CheckOutComponent|comprar|user");
     console.log(this.user);
 
-    this._data.registrarCompra(this.user.user_id, this.user.purchase).subscribe((response)=>{
+    this._data.registrarCompra(this.user.user_username, this.user.purchase).subscribe((response)=>{
       console.log("checkOutComponent|comprar|registrarCompra|response");
       console.log(response);
       // this._router.navigateByUrl('/thanks');

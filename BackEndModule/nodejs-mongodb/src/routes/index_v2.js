@@ -150,25 +150,25 @@ router.get('/get-user/:user_username', (req, res) => {
 // AGREGAR COMPRA (ADD PURCHASE)
 router.post('/push-purchase', (req, res)=>{
     let { purchase, user_username } = req.body;
-    let producto = new Producto({
-        prod_name: 'Huawei',
-        prod_image: '',
-        prod_currency: 'USD',
-        prod_price: 1250.5,
-        prod_state: 'Correcto',
-        prod_amount: 1,
-        prod_totalPay: 1250.5
-    });
+    // let producto = new Producto({
+    //     prod_name: 'Huawei',
+    //     prod_image: '',
+    //     prod_currency: 'USD',
+    //     prod_price: 1250.5,
+    //     prod_state: 'Correcto',
+    //     prod_amount: 1,
+    //     prod_totalPay: 1250.5
+    // });
 
-    let Purchase = new Compra({
-        purchase_date : new Date,
-        send_details : {}
-    }); 
-    Purchase.prod_details.push(producto);
+    // let Purchase = new Compra({
+    //     purchase_date : new Date,
+    //     send_details : {}
+    // }); 
+    // Purchase.prod_details.push(producto);
     console.log('push-purchase|Purchase');
     console.log(purchase);
-    if(Purchase != null){
-        Usuario.findOneAndUpdate({user_username},{$push:{purchases_list:Purchase}},{new:true},(err, doc, response)=>{
+    if(purchase != null){
+        Usuario.findOneAndUpdate({user_username},{$push:{purchases_list:purchase}},{new:true},(err, doc, response)=>{
             if(err) return res.send(500).send({Error: "Error 500: Error al guardar compra"});
             else if(doc){
                 let index = doc.purchases_list.length;
