@@ -3,7 +3,8 @@ const path = require('path');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
-
+// importing routes
+const indexRoutes = require('./routes/index');
 // requerimientos para autenticacion
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -34,9 +35,7 @@ app.use(bodyParser.json());
 mongoose.connect('mongodb://caesar:caesar5@ds129670.mlab.com:29670/db-caesar-store')
     .then(db => console.log('Db connected'))
     .catch(err => console.log(err));
-// importing routes
-// const indexRoutes = require('./routes/index');
-const indexRoutes = require('./routes/index_v2');
+
 
 // middlewares
 app.use(morgan('dev'));
