@@ -55,3 +55,155 @@
     display: inline-block;
     
 }
+@media (max-width: 1292px) {
+    
+    .buy{
+        float: left;
+        width: auto;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+     .b-p{
+       display: inline-block !important;
+       margin-right: 0;
+       margin-left: 1.7rem !important;
+       width: 90px !important;
+       margin-bottom: 3rem;
+       text-align: center;
+       
+     }
+     .h6{
+         margin-top: 4px;
+     }
+     h6{
+       color: white;
+     } 
+     .ul{
+         width: 20rem !important;
+         margin-left: 1rem !important;
+     }
+     .s{
+         margin-bottom: 0 !important;
+         margin-top: 1rem !important;
+     }
+     .c{
+         margin-left: 0% !important;
+         padding-left: 0% !important;
+         padding-right: 0% !important;
+     }
+     
+   
+   }
+
+
+@media (max-width: 1200px) {
+    
+    .buy{
+        float: left;
+        width: auto;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+     .b-p{
+       display: inline-block !important;
+       margin-right: 0;
+       margin-left: 1.7rem !important;
+       width: 90px !important;
+       margin-bottom: 3rem;
+       text-align: center;
+       
+     }
+     .h6{
+         margin-top: 4px;
+     }
+     h6{
+       color: white;
+     } 
+     .ul{
+         width: 24rem !important;
+         margin-left: 1rem !important;
+     }
+     .s{
+         margin-bottom: 0 !important;
+         margin-top: 1rem !important;
+     }
+     .c{
+         margin-left: 0% !important;
+         padding-left: 0% !important;
+         padding-right: 0% !important;
+     }
+     
+   
+}
+@media (max-width: 940px) {
+    
+    .buy{
+        float: left;
+        width: 38rem !important;
+        margin-left: 5rem !important;
+        margin-right: 1rem !important;
+    }
+     .b-p{
+         width: 10rem !important;
+         margin-left: 5.5rem !important;
+       
+     }
+     .h6{
+         margin-top: 4px;
+     }
+     h6{
+       color: white;
+     } 
+     .ul{
+         width: 38rem !important;
+         margin-left: 3.5rem !important;
+     }
+     .s{
+         margin-bottom: 0 !important;
+         margin-top: 1rem !important;
+        
+     }
+   
+     
+   
+}
+@media (max-width: 480px) {
+    
+    .buy{
+        float: left;
+        width: auto;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+     .b-p{
+       display: inline-block !important;
+       margin-right: 0;
+       margin-left: 1.7rem !important;
+       width: 90px !important;
+       margin-bottom: 3rem;
+       text-align: center;
+       
+     }
+     .h6{
+         margin-top: 4px;
+     }
+     h6{
+       color: white;
+     } 
+     .ul{
+         width: 20rem !important;
+         margin-left: 1rem !important;
+     }
+     .s{
+         margin-bottom: 0 !important;
+         margin-top: 1rem !important;
+     }
+     .c{
+         margin-left: 0% !important;
+         padding-left: 0% !important;
+         padding-right: 0% !important;
+     }
+     
+   
+   }
+  

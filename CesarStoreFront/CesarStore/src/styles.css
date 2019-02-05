@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Economica');
 body {
     margin: 0%;
-    font-family: 'Economica', sans-serif;
+    font-family: 'Economica', sans-serif !important;
 }
 
 
@@ -108,4 +108,17 @@ p {
 
 .fadeIn {
     animation-name: fadeIn;
+}
+
+@media (max-width: 780px) {
+    app-redes{
+        display: none !important;
+    }
+    
+}
+@media (max-width: 480px) {
+    app-redes{
+        display: none !important;
+    }
+
 }
