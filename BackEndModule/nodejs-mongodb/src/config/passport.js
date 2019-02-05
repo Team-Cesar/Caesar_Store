@@ -5,11 +5,11 @@ var User = require('../models/Users/user');
 
 
 passport.use(new LocalStrategy({
-    usernameField: 'user_email',
+    usernameField: 'user_username',
     passwordField: 'user_pass'
   },
   function(username, password, done) {
-    User.findOne({ user_email: username }, function (err, user) {
+    User.findOne({ user_username: username }, function (err, user) {
       if (err) { return done(err); }
       // Return if user not found in database
       if (!user) {

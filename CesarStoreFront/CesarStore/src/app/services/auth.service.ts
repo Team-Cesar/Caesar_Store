@@ -4,10 +4,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
+import { Purchase } from '../models/Purchase';
+
 
 // interfaces 
 export interface UserDetails{
   _id:string;
+  user_username:string;
   user_name:string;
   user_lastname:string;
   user_email:string;
@@ -17,9 +20,10 @@ export interface UserDetails{
 }
 
 export interface TokenPayload{
+  user_username:string;
   user_name?:string;
   user_lastname?:string;
-  user_email:string;
+  user_email?:string;
   user_pass:String;
   pass_conf?:String;
 }
@@ -28,11 +32,11 @@ interface TokenResponse{
   token:string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
   private token:string;
+  public user:User = new User();
+  
   constructor(private http:HttpClient, private router:Router) { }
 
   // metodos
@@ -54,6 +58,8 @@ export class AuthService {
     if (token) {
       payload = token.split('.')[1];
       payload = window.atob(payload);
+      console.log("authService|getUserDetails|payload");
+      console.log(payload);
       return JSON.parse(payload);
     } else {
       return null;
@@ -78,9 +84,7 @@ export class AuthService {
     let base;
 
     if (type === 'register'){
-      // base = this._http.post(`/api/${type}`, user);
-      // base = this.http.post(`${this.uri}api/${type}`,user);
-      base = this.http.post('http://localhost:3000/user', user);
+      base = this.http.post('http://localhost:3000/create-user', user);
     }else if(type === 'login'){
       base = this.http.post('http://localhost:3000/login', user);
     }else{
@@ -114,6 +118,6 @@ export class AuthService {
   public logout(): void {
     this.token = '';
     localStorage.removeItem('token');
-    this.router.navigateByUrl('/');
+    
   }
 }

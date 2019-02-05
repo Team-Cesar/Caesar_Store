@@ -16,10 +16,8 @@ import { RouterModule } from '@angular/router';
 import { RedesComponent } from './redes/redes.component';
 import { SidevarrogComponent } from './sidevarrog/sidevarrog.component';
 import { PrecompraComponent } from './precompra/precompra.component';
-
-
-
-
+import { AuthService } from 'src/app/services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 
@@ -50,7 +48,9 @@ PagesComponent
 imports: [
     BrowserModule,
     PAGES_ROUTES,
-    RouterModule
-]
+    RouterModule,
+    FormsModule
+],
+providers: [AuthService],
 })
 export class PagesModule { }

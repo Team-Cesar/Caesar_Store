@@ -19,8 +19,9 @@
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavAltMarkup">
             <div class="navbar-nav ">
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item" routerLinkActive="active">
@@ -48,33 +49,39 @@
             </div>
         </div>
 
-        <ul class="nav justify-content-end">
-                <a class="nav-item nav-link" [routerLink]="['/admin']">
-                    <img src="./././assets/Imagenes/usuario.png" width="40" height="40" alt="">   
-                </a>
-                
-            
-            <li class="nav-item" *ngIf="email == null">
-                <a class="nav-item nav-link" [routerLink]="['/login']">Ingresar</a>
+        <ul class="nav d-flex justify-content-end align-content-center">
+            <a class="nav-item nav-link" [routerLink]="['/admin']">
+                <img src="../../../../assets/Imagenes/usuario.png" width="40" height="40" alt="">
+            </a>
+
+            <li class="nav-item d-flex align-items-end " *ngIf="!isLogged">
+                <a class="nav-item nav-link  text-white" [routerLink]="['/login']">Ingresar</a>
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LoginModal">
+                    Ingresar
+                </button> -->
             </li>
 
-            <li class="nav-item" *ngIf="email == null">
-                <a class="nav-item nav-link" [routerLink]="['/register']">
-                        Registrarse
-                    </a>
+            <!-- <li class="nav-item d-flex align-items-end" *ngIf="user.username == 'Invitado'"> -->
+            <li class="nav-item d-flex align-items-end" *ngIf="!isLogged">
+                <a class="nav-item nav-link  text-white" [routerLink]="['/register']">Registrate</a>
             </li>
 
-            <li class="nav-item text-white d-flex align-items-center" *ngIf="email != null">
-                Bienvenido:  <label class="badge badge-danger" for="">{{email}}</label>
+            <li class="nav-item text-white d-flex align-items-end mr-2 ml-2" *ngIf="isLogged">
+                Bienvenido: <label class="badge badge-danger ml-2 align-items-end" for="">{{user.user_username}}</label>
+            </li>
+
+            <li class="nav-item text-white d-flex align-items-end ml-2 mr-2" *ngIf="isLogged">
+                <button class="btn btn-danger p-0" (click)="logout()">Salir</button>
             </li>
 
             <li class="nav-item">
-                <a class="nav-item nav-link" [routerLink]="['/shop-list']">
-                    <img src="./././assets/Imagenes/carritoCompras2.png" width="30" height="30" alt="">
+                <a class="nav-item nav-link d-flex align-items-end" [routerLink]="['/shop-list']">
+                    <img src="../../../../assets/Imagenes/carritoCompras2.png" width="30" height="30" alt="">
                 </a>
             </li>
         </ul>
-
     </nav>
-
 </div>
+
+<!-- LOGIN -->
+

@@ -10,12 +10,13 @@ import { PagesModule } from './components/pages/pages.module';
 import { ShoppingModule } from './components/shoppingCart/shoppingCart.module';
 import { AdminModule } from './components/admin/admin.module';
 
-
+ 
 
 // FRONT-OMAR
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
+import { AuthService } from './services/auth.service';
 
 // FRONT-ROGELIO
 import { BodyComponent } from './components/body/body.component';
@@ -45,13 +46,15 @@ import { APP_ROUTING } from './app.routes';
   imports: [
     BrowserModule,
     FormsModule,
+
     PagesModule,
     ShoppingModule,
     AdminModule,
+
     APP_ROUTING,
     RouterModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

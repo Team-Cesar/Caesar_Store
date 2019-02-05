@@ -11,7 +11,8 @@ import { Purchase } from 'src/app/models/Purchase';
 })
 export class LoginComponent implements OnInit {
   credentials:TokenPayload = {
-    user_email: '',
+    user_username:'',
+    // user_email: '',
     user_pass: ''
   };
   public message:string;
@@ -29,11 +30,14 @@ export class LoginComponent implements OnInit {
       console.log("loginComponent|login|response");
       console.log(response);
       let user = this.auth.getUserDetails();
+      // console.log("loginComponent|login|getUserDetails");
+      // console.log(user);
       this.user.user_id = user._id;
-      this.user.user_name = user.user_name;
-      this.user.user_email = user.user_email;
-      this.user.user_lastname = user.user_lastname;
-      this.user.user_role = user.user_role;
+      this.user.user_username = user.user_username;
+      // this.user.user_name = user.user_name;
+      // this.user.user_email = user.user_email;
+      // this.user.user_lastname = user.user_lastname;
+      // this.user.user_role = user.user_role;
       this.user.purchase = new Purchase();
 
       localStorage.setItem('User',JSON.stringify(this.user));
@@ -43,8 +47,8 @@ export class LoginComponent implements OnInit {
         this.message = "Usuario no registrado, registrese primero por favor";
       }
       // this.isLog = 'no';
-      console.error("[login] Error]");
-      console.error(err);
+      // console.error("[login] Error]");
+      // console.error(err);
     }); 
   }
 }

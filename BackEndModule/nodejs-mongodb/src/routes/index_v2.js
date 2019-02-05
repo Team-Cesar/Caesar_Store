@@ -9,43 +9,56 @@ var Producto = require('../models/Users/product');
 var Envio = require('../models/Users/send');
 
 // ************ USUARIOS **********************
+// AUTENTICACION
+// LOGIN
+router.post('/login', (req, res) => {
+    console.log("index|login|req.body");
+    console.log(req.body);
+    passport.authenticate('local', function (err, user, info) {
+        console.log("index|login|err");
+        console.log(err);
+        console.log("index|login|user");
+        console.log(user);
+        console.log("index|login|info");
+        console.log(info);
+        var token;
+        // If Passport throws/catches an error
+        if (err) {
+            res.status(404).json(err);
+            return;
+        }
+
+        // If a user is found
+        if (user) {
+            token = user.generateJwt();
+            res.status(200);
+            res.json({
+                "token": token
+            });
+        } else {
+            // If user is not found
+            res.status(401).json(info);
+        }
+    })(req, res);
+});
+
 // CREAR USUARIO
 router.post('/create-user', (req, res) => {
     console.log("index|user|post|req.body");
     console.log(req.body);
-
+    let { user_username, user_name, user_lastname, user_email, user_pass} = req.body;
     let user = new Usuario({
-        user_username: 'Daniele',
-        user_name: 'Oshin',
-        user_lastname: 'Cabana',
-        user_email: 'Daniele@user.com',
+        user_username,
+        user_name,
+        user_lastname,
+        user_email,
         user_role: 3,
         user_status: 'Activo',
-        purchases_list: [new Compra({
-            purchase_date: new Date,
-            send_details: new Envio,
-            prod_details: [
-                new Producto({
-                    prod_name: 'Xiaomi',
-                    prod_image: '',
-                    prod_currency: 'USD',
-                    prod_price: 735.0,
-                    prod_state: 'Arequipa',
-                    prod_amount: 1,
-                    prod_totalPay: 735.0
-                }), new Producto({
-                    prod_name: 'Samsung',
-                    prod_image: '',
-                    prod_currency: 'USD',
-                    prod_price: 555.5,
-                    prod_state: 'Arequipa',
-                    prod_amount: 2,
-                    prod_totalPay: 1111.0
-                })]
-        })]
+        purchases_list: []
     });
+    user.setPassword(user_pass);
 
-    Usuario.findOne({}, (req, usuario) => {
+    Usuario.findOne({user_username}, (req, usuario) => {
         if (usuario == null) {
             console.log('Usuarios|find|usuario');
             console.log(usuario);
@@ -67,6 +80,8 @@ router.post('/create-user', (req, res) => {
             if (!usuario) {
                 return res.status(404).send({ Error: "Error 404 saving user" });
             }
+            var token;
+            oken = user.generateJwt();
             return res.status(200).send(usuario);
         });
     });

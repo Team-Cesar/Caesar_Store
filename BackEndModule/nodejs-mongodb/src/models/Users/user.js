@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var crypto = require('crypto');
+var jwt = require('jsonwebtoken');
 
 // definimos nuestros esquemas
 var SendSchema = new mongoose.Schema({
@@ -89,6 +91,7 @@ UserSchema.methods.generateJwt = function () {
 
     return jwt.sign({
         _id: this._id,
+        user_username: this.user_username,
         user_name: this.user_name,
         user_lastname: this.user_lastname,
         user_email: this.user_email,
