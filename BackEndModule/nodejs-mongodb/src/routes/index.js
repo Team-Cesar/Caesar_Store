@@ -80,8 +80,7 @@ router.post('/create-user', (req, res) => {
             if (!usuario) {
                 return res.status(404).send({ Error: "Error 404 saving user" });
             }
-            var token;
-            oken = user.generateJwt();
+            var token = user.generateJwt();
             return res.status(200).send(usuario);
         });
     });
@@ -124,8 +123,7 @@ router.post('/create-admin-operator', (req, res) => {
             if (!usuario) {
                 return res.status(404).send({ Error: "Error 404 saving user" });
             }
-            var token;
-            oken = user.generateJwt();
+            var token = user.generateJwt();
             return res.status(200).send(usuario);
         });
     });
