@@ -21,7 +21,7 @@ const adminRoutes: Routes = [
         path: '',
         component: AdminComponent,
         children: [
-            { path: 'celular/:id', component: Celular1Component },
+            { path: 'celular1', component: Celular1Component },
             { path: 'celulares1', component: Celulares1Component },
             { path: 'tablets1', component: Tablet1Component },
             { path: 'tablet1', component: Tablets1Component },

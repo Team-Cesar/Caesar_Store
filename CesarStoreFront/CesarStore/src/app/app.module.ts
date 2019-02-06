@@ -10,7 +10,7 @@ import { PagesModule } from './components/pages/pages.module';
 import { ShoppingModule } from './components/shoppingCart/shoppingCart.module';
 import { AdminModule } from './components/admin/admin.module';
 
- 
+
 
 // FRONT-OMAR
 import { LoginComponent } from './components/login/login.component';

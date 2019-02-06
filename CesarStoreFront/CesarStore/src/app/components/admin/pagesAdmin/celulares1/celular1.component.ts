@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Celular } from '../../interfaces/celular.interface';
-import { NgForm } from '@angular/forms';
+/* import { Component, OnInit } from '@angular/core';
+import { Celular } from '../../interface/celular.interface';
 import { CelularesService } from '../../services/celulares.service';
-import { Router, ActivatedRoute } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-celular1',
@@ -13,65 +9,73 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class Celular1Component implements OnInit {
 
-  // creando un objeto
- celular: Celular = {
-    name: '',
-    marca: '',
-    nombre: '',
-    cantidad: null,
-    precio: null,
-  };
-nuevo: boolean = false;
-id: string;
+  celulares: any;
+  loading: boolean = true;
 
+  constructor( private _celularesService: CelularesService) {
 
-  constructor( private _celularesService: CelularesService,
-               private router: Router,
-               private route: ActivatedRoute) {
-                this.route.params.subscribe( parametros => {
-                  console.log(parametros);
-                  this.id = parametros['id'];
-                  if (  this.id !== 'nuevo') {
-                    this._celularesService.getCelular( this.id)
-                    .subscribe( celular => this.celular = celular );
-                  }
-                });
-               }
+    this._celularesService.getCelulares()
+    .subscribe( data => {
+     this.celulares = data;
+     this.loading = false;
+     console.log(data);
+    });
+   }
 
   ngOnInit() {
-  }
-   guardar() {
-    console.log(this.celular);
-
-    if ( this.id === 'nuevo') {
-      // insertando
-      this._celularesService.nuevoCelular( this.celular )
-      .subscribe( data => {
-        console.log(data);
-   this.router.navigate(['/celular', data.name]);
- },
-error => {
-  return console.error(error);
-});
-    } else {
-      // actualizando
-      this._celularesService.actualizarCelular( this.celular, this.id )
-      .subscribe( data => {
-        console.log(data);
- },
-error => {
-  return console.error(error);
-});
-    }
-
 
   }
-  agregarNuevo (forma: NgForm) {
-    this.router.navigate(['/celular', 'nuevo']);
-    forma.reset({
-      marca: 'Apple',
+  borrarCelular(pro_id) {
+    this._celularesService.borrarCelular(pro_id)
+    .subscribe( respuesta => {
+      if ( respuesta) {
+        console.error(respuesta);
+      } else {
+        // todo bien
+        delete this.celulares[pro_id];
+      }
     });
   }
 
 }
+ */
+import { Component, OnInit } from '@angular/core';
+import { Celular } from '../../interface/celular.interface';
+import { CelularesService } from '../../services/celulares.service';
 
+@Component({
+  selector: 'app-celular1',
+  templateUrl: './celular1.component.html',
+  styles: []
+})
+export class Celular1Component implements OnInit {
+
+  celulares: any = [];
+  loading: boolean = true;
+
+  constructor( private _celularesService: CelularesService) {
+
+    this._celularesService.getCelulares()
+    .subscribe( data => {
+     this.celulares = data;
+     this.loading = false;
+     console.log(data);
+    });
+   }
+
+  ngOnInit() {
+
+  }
+  borrarCelular(pro_id) {
+    this._celularesService.borrarCelular(pro_id)
+    .subscribe( respuesta => {
+      if ( respuesta) {
+        console.error(respuesta);
+      } else {
+        // todo bien
+        delete this.celulares[pro_id];
+      }
+    });
+  }
+
+}

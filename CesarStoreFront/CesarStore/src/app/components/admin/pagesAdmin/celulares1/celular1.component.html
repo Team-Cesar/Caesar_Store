@@ -1,42 +1,55 @@
-<h3>Celular <small>{{ celular.nombre}}</small></h3>
-<hr>
-<button (click)="agregarNuevo(forma)" type="button" class="btn btn-outline-success w120 marginbutton">Nuevo Celular</button>
-<button [routerLink]="['/celulares1']" class="btn btn-outline-danger w120">Regresar</button>
+<h1>Celulares</h1>
 <br>
-<div class="">
+
+<div class="row ">
+    <div class="col-md-12 text-right">
+        <button [routerLink]="['/celular','nuevo']" class="btn btn-outline-primary" type="button" name="button">Nuevo</button>
+    </div>
+</div>
+<br>
+<div class="row animated fadeIn fast">
     <div class="col-md-12">
-        <form (ngSubmit)="guardar()" #forma="ngForm">
-            <div class="form-group">
-                <label>Marca</label>
-                <select [(ngModel)]="celular.marca" name="marca" class="form-control">
-                            <option value="Apple">Apple</option>
-                            <option value="Samsung">Samsung</option>
-                            <option value="Motorola">Motorola</option>
-                            <option value="Nokia">Nokia</option>
-                            <option value="Xiaomi">Xiaomi</option>
-                            <option value="Huawei">Huawei</option>
-                            <option value="LG">LG</option>
-        
-                        </select>
-            </div>
-            <div class="form-group">
-                <label>Nombre</label>
-                <input [(ngModel)]="celular.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del Celular" required>
-            </div>
-            <div class="form-group">
-                <label>Cantidad</label>
-                <input [(ngModel)]="celular.cantidad" name="cantidad" type="number" class="form-control" placeholder="Nro" required>
-            </div>
-            <div class="form-group">
-                <label>Precio</label>
-                <input [(ngModel)]="celular.precio" name="precio" type="number" class="form-control" placeholder="S/" required>
-            </div>
+        <div class="table-responsive">
+            <div class="table">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col" class="text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let celular of celulares | keys; let i = index">
+                            <th scope="row">{{ i+1}}</th>
+                            <td></td>
+                            <td>{{ celular.pro_nam }}</td>
+                            <td>{{ celular.pro_pri }}</td>
+                            <td>{{ celular.pro_marca }}</td>
+                            <td>{{ celular.pro_id }}</td>
+                            <td>estado</td>
+                            <td class="text-right w-120">
+                                <button [routerLink]="['/celular',k]" type="button" class="btn btn-outline-success w120">Editar</button>
+                                <button (click)="borrarCelular(k)" type="button" class="btn btn-outline-danger w120 marginbutton">Borrar</button>
 
-            <div class="form-group">
-                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">Ingresar</button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div *ngIf="( celulares | keys).length === 0 && !loading" class="alert alert-info" role="alert">
+                    <strong>No hay</strong> registros que mostrar
+                </div>
+                <div *ngIf="loading" class="alert alert-warning" role="alert">
+                    <strong>Cargando....</strong> por favor espere
+                </div>
             </div>
-
-
-        </form>
+        </div>
     </div>
 </div>
