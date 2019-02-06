@@ -1,70 +1,41 @@
 <div class="wrapper">
+
     <nav id="sidebar">
-     
-      
-      
-      <ul class="list-unstyled components">
-       
-          <li>
-              <a href="#phone" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Celulares</a>
-              <ul class="collapse list-unstyled active" id="phone">
-                <li>
-                  <a href="#">page1</a>
-                </li>
-                <li>
-                  <a href="#">page2</a>
-                </li>
-                <li>
-                  <a href="#">page3</a>
-                </li>
-              </ul> 
-            </li>
-        <li>
-          <a href="#tablets" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tablets</a>
-          <ul class="collapse list-unstyled active" id="tablets">
-            <li>
-              <a href="#">page1</a>
-            </li>
-            <li>
-              <a href="#">page2</a>
-            </li>
-            <li>
-              <a href="#">page3</a>
-            </li>
-          </ul> 
-        </li>
-        <li>
-            <a href="#camera" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Camaras</a>
-            <ul class="collapse list-unstyled active" id="camera">
-              <li>
-                <a href="#">page1</a>
-              </li>
-              <li>
-                <a href="#">page2</a>
-              </li>
-              <li>
-                <a href="#">page3</a>
-              </li>
-            </ul> 
-          </li>
-             <li>
-          <a href="#accesory" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Accesorios</a>
-          <ul class="collapse list-unstyled active" id="accesory">
-            <li>
-              <a href="#">page1</a>
-            </li>
-            <li>
-              <a href="#">page2</a>
-            </li>
-            <li>
-              <a href="#">page3</a>
-            </li>
-          </ul> 
-        </li>
-        
-      </ul>
-      
-     
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <h3>Collapsible Sidebar</h3>
+        </div>
+
+        <!-- Sidebar Links -->
+        <ul class="list-unstyled components">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><!-- Link with dropdown items -->
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li><a href="#">Page</a></li>
+                    <li><a href="#">Page</a></li>
+                    <li><a href="#">Page</a></li>
+                </ul>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
 
- </div>
+    <div id="content">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+      </div>
+
+</div>
+<script>
+  $(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+    });
+});
+</script>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { User } from 'src/app/models/User';
 import { Purchase } from 'src/app/models/Purchase';
+import { ProductPublic } from 'src/app/models/Public/ProductPublic';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-precompra',
@@ -11,50 +13,35 @@ import { Purchase } from 'src/app/models/Purchase';
 export class PrecompraComponent implements OnInit {
   public purchase:Purchase = new Purchase();
   public product:Product = new Product();
+  public productPublic:ProductPublic = new ProductPublic();
   public products:Array<Product> = new Array<Product>();
   public prod_name:string = '';
   public prod_price:string;
   public user:User = new User();
-  constructor() {
-    if(localStorage.getItem("User")){
-      this.user = JSON.parse(localStorage.getItem("User"));
-      if(this.user.purchase != null){
-        this.products = this.user.purchase.prod_details;
-      }
-      this.products = new Array<Product>();
-      // });
-    }else{
-      // this._dataService.obtenerUsuario()
-      this.user.user_role = 3;
-      this.user.user_name = "Invitado";
-      this.purchase.prod_details = this.products;
-      this.user.purchase = this.purchase;
-      
-      localStorage.setItem("User",JSON.stringify(this.user));
-    }
-    // this.amount = this.products.length;
-    console.log("[AddToCartComponent|constructor] user:");
-    console.log(this.user);
-    console.log("[AddToCartComponent|constructor] products:");
-    console.log(this.products);
+
+  constructor(private _router:Router) {
   }
   
   ngOnInit() {
+    if(localStorage.getItem('product')){
+      this.productPublic = JSON.parse(localStorage.getItem('product'));
+    }
+    if(localStorage.getItem('User')){
+      this.user = JSON.parse(localStorage.getItem('User'));
+    }
   }
   
   registrarProducto(){
     
     let product = new Product();
     this.purchase.purchase_date = new Date();
-    product.prod_name = this.prod_name;
+    product.prod_name = this.productPublic.prod_nam;
     product.prod_currency = "PEN";
     product.prod_amount = 1;
-    product.prod_price = parseInt(this.prod_price);
-    product.prod_state = "Correcto";
-    product.prod_totalPay = product.prod_price;
-    product.prod_state = "Correcto";
-    product.prod_image = "http://placehold.it/100x100";
-    product.prod_currency = "PEN";
+    product.prod_price = this.productPublic.prod_pri;
+    product.prod_state = this.productPublic.prod_sta;
+    product.prod_totalPay = this.productPublic.prod_pri;
+    product.prod_image = this.productPublic.image_list[0].image_url;
     
     this.products.push(product);
     this.purchase.prod_details = this.products;
@@ -63,5 +50,6 @@ export class PrecompraComponent implements OnInit {
     console.log(this.user);
 
     localStorage.setItem("User",JSON.stringify(this.user));
+    this._router.navigateByUrl('/shop-list');
   }
 }

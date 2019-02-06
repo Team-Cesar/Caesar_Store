@@ -110,13 +110,13 @@ router.get('/findpro/:id', async (req, res)=>{
 
 router.get('/findallpro', async (req,res)=>{
     const products = await pool.query('SELECT * FROM products');
-    res.send({products});
+    res.send(products);
 });
 
 router.get('/fprobycat/:cat_id', async (req,res)=>{
     const { cat_id } = req.params
     const products = await pool.query('SELECT * FROM products WHERE cat_id = ?', [cat_id]);
-    res.send({products});
+    res.send(products);
 });
 
 router.get('/fprobybra/:bra_id', async (req,res)=>{
@@ -126,8 +126,14 @@ router.get('/fprobybra/:bra_id', async (req,res)=>{
 });
 
 router.post('/addpro', async (req,res)=>{
-    const { pro_nam, pro_des, pro_pri, pro_sto, pro_sta, cat_id, bra_id } = req.body;
+    let { pro_nam, pro_des, pro_pri, pro_sto, pro_sta, cat_id, bra_id } = req.body;
+    pro_pri = parseInt(pro_pri);
+    pro_sto = parseInt(pro_sto);
+    cat_id = parseInt(cat_id);
+    bra_id = parseInt(bra_id);
     const product = { pro_nam, pro_des, pro_pri, pro_sto, pro_sta, cat_id, bra_id };
+    console.log('post|addpro|product');
+    console.log(product);
     await pool.query('INSERT INTO products SET ?', [product], (err, product)=>{
         if(err){
             res.status(500).send('Error 500');
@@ -175,9 +181,11 @@ router.get('/fimgbypro/:pro_id', async (req,res)=>{
 });
 
 router.post('/addimg', async (req,res)=>{
-    const { img_nam, img_url, pro_id } = req.body;
+    let { img_nam, img_url, pro_id } = req.body;
+    pro_id = parseInt(pro_id);
     const image = { img_nam, img_url, pro_id };
-    // const image = req.body;
+    console.log('post|addimg|image');
+    console.log(image);
     await pool.query('INSERT INTO images SET ?', [image], (err, image)=>{
         if(err){
             res.status(500).send('Error 500');
