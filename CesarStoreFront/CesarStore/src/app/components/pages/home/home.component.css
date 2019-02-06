@@ -1,3 +1,41 @@
 .card-title:hover {
     text-decoration: underline;
 }
+
+.c-hh{
+    
+    
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+
+}
+.slide{
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+}
+.c{
+    margin-right: 3rem !important;
+}
+@media (max-width: 410px) {
+    .card-body{
+        background-color: red;
+    }
+    .c-h{
+        margin: 0% 0% 0% 0% !important;
+        padding: 0% 0% 0% 0% !important;
+
+    }
+    
+    .row{
+        
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+    }
+    .c{
+        
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+    }
+     
+   
+}

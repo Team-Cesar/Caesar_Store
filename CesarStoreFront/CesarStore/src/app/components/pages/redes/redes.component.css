@@ -5,132 +5,14 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-.social {
+.chat{
+    border-radius: 70px;
     position: fixed;
-    right: 0%;
-    top: 200px;
+    right: 1%;
+    top: 686px;
     z-index: 2000;
+    width: 60px;
+    height: 60px;
+   
 }
 
-.social a {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    -webkit-transition: all 500ms ease-in-out;
-    -o-transition: all 500ms ease-in-out;
-    transition: all 500ms ease-in-out;
-    /* -webkit-transition-timing-function: ease-in-out;
-    -o-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out; */
-}
-
-.social1 {
-    position: fixed;
-    right: 0%;
-    top: 252px;
-    z-index: 2000;
-}
-
-.social1 a {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    -webkit-transition: all 500ms ease-in-out;
-    -o-transition: all 500ms ease-in-out;
-    transition: all 500ms ease-in-out;
-}
-
-.social2 {
-    position: fixed;
-    right: 0%;
-    top: 304px;
-    z-index: 2000;
-}
-
-.social2 a {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    -webkit-transition: all 500ms ease-in-out;
-    -o-transition: all 500ms ease-in-out;
-    transition: all 500ms ease-in-out;
-}
-
-.social3 {
-    position: fixed;
-    right: 0%;
-    top: 356px;
-    z-index: 2000;
-}
-
-.social3 a {
-    display: inline-block;
-    padding: 10px 15px;
-    padding-left: 17px;
-    text-decoration: none;
-    -webkit-transition: all 500ms ease-in-out;
-    -o-transition: all 500ms ease-in-out;
-    transition: all 500ms ease-in-out;
-}
-
-.social4 {
-    position: fixed;
-    right: 0%;
-    top: 406px;
-    z-index: 2000;
-}
-
-.social4 a {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    -webkit-transition: all 500ms ease-in-out;
-    -o-transition: all 500ms ease-in-out;
-    transition: all 500ms ease-in-out;
-}
-
-.icon-facebook2 {
-    background: #3b5998;
-}
-
-.icon-twitter {
-    background: #00abf0;
-}
-
-.icon-gmail {
-    background: #000000d2;
-}
-
-.icon-instagram {
-    background: #3f729b;
-}
-
-.icon-whatsapp {
-    background: #25d366;
-}
-
-.social a:hover {
-    padding: 10px 30px;
-    background: #000;
-}
-
-.social1 a:hover {
-    padding: 10px 30px;
-    background: #000;
-}
-
-.social2 a:hover {
-    padding: 10px 30px;
-    background: #000;
-}
-
-.social3 a:hover {
-    padding: 10px 30px;
-    background: #000;
-}
-
-.social4 a:hover {
-    padding: 10px 30px;
-    background: #000;
-}
