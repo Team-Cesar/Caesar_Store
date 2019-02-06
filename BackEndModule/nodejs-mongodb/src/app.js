@@ -3,8 +3,11 @@ const path = require('path');
 const morgan = require('morgan');
 const app = express();
 const mongoose = require('mongoose');
+// const mysql = require('mysql')
+// const {database} = require('./database/MysqlKeys');
 // importing routes
 const indexRoutes = require('./routes/index');
+const categoryRoutes = require('./routes/Category');
 // requerimientos para autenticacion
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -29,21 +32,19 @@ app.use(passport.initialize());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-// Conexion a base de datos
+// Conexion a base de datos mongoDb
 // mongoose.connect('mongodb+srv://caesar_store:qFkKUQsB4uCxK9wy@cluster0-9ay4b.azure.mongodb.net/caesar_store?retryWrites=true')
-// mongoose.connect('mongodb://localhost:27017/CesarStore')
-mongoose.connect('mongodb://caesar:caesar5@ds129670.mlab.com:29670/db-caesar-store')
-    .then(db => console.log('Db connected'))
+mongoose.connect('mongodb://localhost:27017/CesarStore')
+// mongoose.connect('mongodb://caesar:caesar5@ds129670.mlab.com:29670/db-caesar-store')
+    .then(db => console.log('MongoDb on. Enjoy :3'))
     .catch(err => console.log(err));
-
 
 // middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 
 // routes
-app.use('/', indexRoutes);
-
+app.use('/', indexRoutes, categoryRoutes);
 //starting the server
 
 app.listen(app.get('port'), ()=>{
