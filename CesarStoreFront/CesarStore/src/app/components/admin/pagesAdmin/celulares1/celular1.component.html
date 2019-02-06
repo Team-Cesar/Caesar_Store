@@ -25,13 +25,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let celular of celulares | keys; let i = index">
+                        <tr *ngFor="let k of celulares | keys; let i = index">
                             <th scope="row">{{ i+1}}</th>
                             <td></td>
-                            <td>{{ celular.pro_nam }}</td>
-                            <td>{{ celular.pro_pri }}</td>
-                            <td>{{ celular.pro_marca }}</td>
-                            <td>{{ celular.pro_id }}</td>
+                            <td>{{ celulares[k].pro_nam }}</td>
+                            <td>{{ celulares[k].pro_pri }}</td>
+                            <td>{{ celulares[k].pro_marca }}</td>
+                            <td>{{ celulares[k].cantidad }}</td>
                             <td>estado</td>
                             <td class="text-right w-120">
                                 <button [routerLink]="['/celular',k]" type="button" class="btn btn-outline-success w120">Editar</button>
