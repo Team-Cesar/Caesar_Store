@@ -35,8 +35,14 @@ export class DataService {
     return this._http.post('https://user-purchases-api.herokuapp.com/push-purchase', data);
   }
 
-  obtenerProductos(cat_id: number): Observable<any> {
-    return this._http.get('localhost:4000/fprobycat/'+cat_id);
+  obtenerProductosPorCategoria(cat_id: number): Observable<any> {
+    return this._http.get('http://localhost:4000/fprobycat/'+cat_id);
+  }
+  // obtenerCategoria(cat_id: number): Observable<any> {
+  //   return this._http.get('http://localhost:4000/findallbra);
+  // }
+  obtenerMarca(bra_id:number):Observable<any> {
+    return this._http.get('http://localhost:4000/findbra/'+bra_id);
   }
 }
 

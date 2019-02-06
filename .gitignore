@@ -7,3 +7,4 @@ CesarStore_LOGO.png
 BackEndModule/nodejs-mysql/node_modules/
 celulares.html
 celulares.ts
+BackEndModule/nodejs-mysql/src/keys.js
