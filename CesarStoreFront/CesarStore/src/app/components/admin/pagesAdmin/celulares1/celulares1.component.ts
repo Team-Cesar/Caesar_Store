@@ -14,25 +14,9 @@ export class Celulares1Component implements OnInit {
 
    constructor( private _celularesService: CelularesService) {
 
-       this._celularesService.getCelulares()
-           .subscribe( data => {
-            this.celulares = data;
-            this.loading = false;
-           });
    }
 
    ngOnInit() {
-   }
-   borrarCelular(key$) {
-     this._celularesService.borrarCelular(key$)
-     .subscribe( respuesta => {
-       if ( respuesta) {
-         console.error(respuesta);
-       } else {
-         // todo bien
-         delete this.celulares[key$];
-       }
-     });
    }
  }
 
