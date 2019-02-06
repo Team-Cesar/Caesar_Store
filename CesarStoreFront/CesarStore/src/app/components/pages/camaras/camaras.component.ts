@@ -10,18 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./camaras.component.css']
 })
 export class CamarasComponent implements OnInit {
-  public productos:ProductPublic[];
+  public productos:ProductPublic[] = new Array();
+  public marcas:String[] = new Array();
   public producto:ProductPublic = new ProductPublic();
   public imagenes:string[] = new Array<string>();
   constructor(private _data:DataService, private _router:Router) { }
 
   ngOnInit() {
-    this._data.obtenerProductos(2).subscribe((camaras)=>{
+    this._data.obtenerProductosPorCategoria(2).subscribe((camaras)=>{
       this.productos = camaras;
-    });
-    console.log()
-    this.productos.forEach((product, index)=>{
-      this.imagenes[index] = product.image_list[0].image_url;
     });
   }
 
@@ -29,6 +26,6 @@ export class CamarasComponent implements OnInit {
     // let id:number = this.productos[index].prod_id;
       this.producto = this.productos[index];
       localStorage.setItem('product',JSON.stringify(this.producto));
-      this._router.navigateByUrl('/compra');
+      // this._router.navigateByUrl('/compra');
   }
 }

@@ -98,19 +98,19 @@
                 <div class="card-body">
                   <div class="row text-center">
                     <div class="col col-8">
-                      <h4>{{product.prod_nam}}</h4>
+                      <h4>{{product.pro_nam}}</h4>
                     </div>
                     <div class="col col-4">
-                      <p class="card-text bg-light-inverse">{{product.prod_pri}}</p>
+                      <p class="card-text bg-light-inverse">{{product.pro_pri|currency:'S/':true:'1.2-2'}}</p>
                     </div>
                   </div>
-                  <p class="card-text">{{product.prod_des}}</p>
+                  <p class="card-text">{{product.pro_des}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary" (click)="VerProducto(i)">Mas detalles...</button>
                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                     </div>
-                    <!-- <small class="text-muted">9 mins</small> -->
+                    <small class="text-muted ml-auto">stock:{{product.pro_sto}}</small>
                   </div>
                 </div>
               </div>
