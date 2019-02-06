@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class CelularesService {
 
-  API_URI = 'http://localhost:4002';
+  API_URI = 'http://localhost:4000';
 constructor( private http: HttpClient) {}
 
 getCelulares() {
@@ -24,12 +24,12 @@ borrarCelular(id: string) {
 return this.http.delete(`${this.API_URI}/findpro/${id}`);
 }
 
-nuevoCelular(celular: Celular) {
+saveCelular(celular: Celular) {
   return this.http.post(`${this.API_URI}/addpro`, celular);
 }
-/* editarCelular( id: string, editarCelular: Celular): Observable<Celular> {
+updateCelular( id: string, editarCelular: Celular): Observable<Celular> {
   return this.http.put(`${this.API_URI}/findpro/${id}`, editarCelular);
- } */
+ }
 }
 
 

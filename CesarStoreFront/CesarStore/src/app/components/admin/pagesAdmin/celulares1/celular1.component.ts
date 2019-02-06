@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef, HostBinding, ɵConsole } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Celular } from '../../interface/celular.interface';
 import { CelularesService } from '../../services/celulares.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-celular1',
@@ -9,32 +12,56 @@ import { CelularesService } from '../../services/celulares.service';
 })
 export class Celular1Component implements OnInit {
 
-  celulares: Celular;
-  loading: boolean = true;
+  @HostBinding('class') clases = 'row';
 
-  constructor( private _celularesService: CelularesService) {
+  celular: Celular = {
+    pro_nam: '',
+    pro_des: '',
+    pro_pri: null,
+    pro_sto: null,
+  };
 
-    this._celularesService.getCelulares()
-    .subscribe( data => {
-     this.celulares = data;
-     this.loading = false;
-     console.log(data);
-    });
-   }
+  edit: boolean = false;
+
+  constructor(private _celularService: CelularesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+  /*   const params = this.activatedRoute.snapshot.params;
+    if (params.id) {
+      this._celularService.getCelular(params.id)
+        .subscribe(
+          res => {
+            console.log(res);
+            this.celular = res;
+            this.edit = true;
+          },
+          err => console.log(err)
+        );
+    } */
+  }
 
+  saveNewCelular() {
+
+    this._celularService.saveCelular(this.celular)
+      .subscribe(
+        res => {
+          console.log(res);
+/*           this.router.navigate(['/celular1']);
+ */        },
+        err => console.error(err)
+      );
+      console.log(this.celular);
   }
-  borrarCelular(pro_id) {
-    this._celularesService.borrarCelular(pro_id)
-    .subscribe( respuesta => {
-      if ( respuesta) {
-        console.error(respuesta);
-      } else {
-        // todo bien
-        delete this.celulares[pro_id];
-      }
-    });
-  }
+
+ /*  updateCelular() {
+  this._celularService.updateCelular(this.celular.pro_id, this.celular)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/celular1']);
+        },
+        err => console.error(err)
+      );
+  } */
 
 }
