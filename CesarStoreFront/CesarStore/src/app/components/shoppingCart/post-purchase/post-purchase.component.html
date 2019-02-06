@@ -63,12 +63,12 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr class="text-center" *ngFor="let product of products; let i = index">
+                  <tr class="text-center" *ngFor="let product of products|keyvalue; let i = index">
                     <td>
-                      {{i}}
+                      {{product.key}}
                     </td>
                     <td>
-                      {{date}}
+                      {{date|date:'fullDate'}}
                     </td>
                     <td>
                         <img src="{{product.prod_image}}" alt="">

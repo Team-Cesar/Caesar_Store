@@ -25,6 +25,7 @@ import { Camara1Component } from './pagesAdmin/camaras1/camara1.component';
 import { Tablet1Component } from './pagesAdmin/tablets1/tablet1.component';
 import { CelularesService } from './services/celulares.service';
 import { Celular1Component } from './pagesAdmin/celulares1/celular1.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -33,7 +34,8 @@ import { Celular1Component } from './pagesAdmin/celulares1/celular1.component';
         RouterModule,
         CommonModule,
         ADMIN_ROUTES,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     declarations: [
         NopagefoundComponent,
