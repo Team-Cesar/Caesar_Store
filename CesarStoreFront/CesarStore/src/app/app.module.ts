@@ -20,7 +20,7 @@ import { AuthService } from './services/auth.service';
 
 // FRONT-ROGELIO
 import { BodyComponent } from './components/body/body.component';
-import { HeaderComponent } from './components/header/header.component';
+
 import { PhoneComponent } from './components/body/phone/phone.component';
 import { TabletComponent } from './components/body/tablet/tablet.component';
 import { CameraComponent } from './components/body/camera/camera.component';
@@ -38,7 +38,7 @@ import { DataService } from './services/data.service';
 
     AppComponent,
     BodyComponent,
-    HeaderComponent,
+    
     PhoneComponent,
     TabletComponent,
     CameraComponent,
