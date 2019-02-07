@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Purchase } from 'src/app/models/Purchase';
 import { User } from 'src/app/models/User';
 import { Product } from 'src/app/models/Product';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-shop-list',
@@ -27,16 +28,24 @@ export class ShopListComponent implements OnInit {
     this.productosFiltrados = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
   // public compra:number;
-  constructor(private _dataService:DataService){
-    if(localStorage.getItem("User")){
-      this.user = JSON.parse(localStorage.getItem("User"));
-    }else{
-      this.user.user_role = 3;
-      this.user.user_name = "Invitado";
-      this.user.purchase = new Purchase();
-    }
-    console.log("[ShopListComponent|constructor] user:");
-    console.log(this.user);
+  constructor(private _dataService:DataService, private _auth:AuthService){
+    // let isLogged = this._auth.isLoggedIn();
+    this.user = JSON.parse(localStorage.getItem('User'));
+    // if(isLogged){
+    //   this.user = JSON.parse(localStorage.getItem('User'));
+    // }else{
+    //   this.user = new User();
+    //   this.user.user_username = 'Invitado';
+    // }
+    // if(localStorage.getItem("User")){
+    //   this.user = JSON.parse(localStorage.getItem("User"));
+    // }else{
+    //   this.user.user_role = 3;
+    //   this.user.user_name = "Invitado";
+    //   this.user.purchase = new Purchase();
+    // }
+    // console.log("[ShopListComponent|constructor] user:");
+    // console.log(this.user);
 
     this.products = this.user.purchase.prod_details;
     if(this.products != null){

@@ -1,13 +1,13 @@
 import { ImageProductPublic } from "./ImageProductPublic";
 
 export class ProductPublic{
-    prod_id: number;
-    prod_nam: string;
-    prod_des: string;
-    prod_pri: number;
-    prod_sto: number;
-    prod_sta: string;
-    prod_bra: string;
-    prod_cat: string;
+    pro_id: number;
+    pro_nam: string;
+    pro_des: string;
+    pro_pri: number;
+    pro_sto: number;
+    pro_sta: string;
+    pro_bra: string;
+    pro_cat: string;
     image_list: ImageProductPublic[];
 }

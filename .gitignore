@@ -8,3 +8,10 @@ BackEndModule/nodejs-mysql/node_modules/
 celulares.html
 celulares.ts
 BackEndModule/nodejs-mysql/src/keys.js
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_brands.sql
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_categories.sql
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_customers.sql
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_images.sql
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_products.sql
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_sessions.sql
+BackEndModule/nodejs-mysql/caesar-store_v2/caesar_store_users.sql

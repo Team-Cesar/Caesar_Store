@@ -26,6 +26,6 @@ export class CamarasComponent implements OnInit {
     // let id:number = this.productos[index].prod_id;
       this.producto = this.productos[index];
       localStorage.setItem('product',JSON.stringify(this.producto));
-      // this._router.navigateByUrl('/compra');
+      this._router.navigateByUrl('/compra');
   }
 }

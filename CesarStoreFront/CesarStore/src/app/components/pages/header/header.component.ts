@@ -26,8 +26,6 @@ export class HeaderComponent {
     }else{
       this.user.purchase = new Purchase();
       localStorage.setItem('User',JSON.stringify(this.user));
-      // console.log("headerComponent|constructor|User");
-      // console.log(this.user);
     }
   }
 

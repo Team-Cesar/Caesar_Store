@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { Purchase } from '../models/Purchase';
 import { HttpClient } from '@angular/common/http';
@@ -11,12 +11,7 @@ import { ImageProductPublic } from '../models/Public/ImageProductPublic';
   providedIn: 'root'
 })
 export class DataService {
-  // private messageSource = new BehaviorSubject<string>("Mensaje de prueba");
-  private product = new Subject<Product>();
-  currentProduct = this.product.asObservable();
-  // private producto:Product = new Observable<Product>();
-  // currentMessage = this.messageSource.asObservable();
-  // propertyProductos = this.productos.
+  
 
   constructor(private _http: HttpClient) { }
 
@@ -36,13 +31,16 @@ export class DataService {
   }
 
   obtenerProductosPorCategoria(cat_id: number): Observable<any> {
-    return this._http.get('http://localhost:4000/fprobycat/'+cat_id);
+    return this._http.get('https://product-management-api.appspot.com/fprobycat/'+cat_id);
   }
   // obtenerCategoria(cat_id: number): Observable<any> {
   //   return this._http.get('http://localhost:4000/findallbra);
   // }
+  obtenerImagenesDeProducto(pro_id:number):Observable<any> {
+    return this._http.get('https://product-management-api.appspot.com/fimgbypro/'+pro_id);
+  }
   obtenerMarca(bra_id:number):Observable<any> {
-    return this._http.get('http://localhost:4000/findbra/'+bra_id);
+    return this._http.get('https://product-management-api.appspot.com/findbra/'+bra_id);
   }
 }
 
