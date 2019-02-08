@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Celular } from '../../interfaces/celular.interface';
-import { CelularesService } from '../../services/celulares.service';
+import { Producto } from '../../interfaces/producto.interface';
+import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-celulares1',
@@ -11,10 +11,11 @@ export class Celulares1Component implements OnInit {
 
   celulares: any = [];
   loading: boolean = true;
+   categoria: any = 1;
 
-  constructor( private _celularesService: CelularesService) {
+  constructor( private _celularesService: ProductosService) {
 
-    this._celularesService.getCelulares()
+    this._celularesService.getProductos(this.categoria)
     .subscribe( data => {
      this.celulares = data;
      this.loading = false;
@@ -26,8 +27,8 @@ export class Celulares1Component implements OnInit {
 
   }
 
-  borrarCelular(pro_id) {
-    this._celularesService.borrarCelular(pro_id)
+  borrarProducto(pro_id) {
+    this._celularesService.borrarProducto(pro_id)
     .subscribe( respuesta => {
       if ( respuesta) {
         console.error(respuesta);

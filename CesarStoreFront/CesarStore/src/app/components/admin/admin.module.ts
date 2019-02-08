@@ -20,12 +20,10 @@ import { Accesorios1Component } from './pagesAdmin/accesorios1/accesorios1.compo
 import { Camaras1Component } from './pagesAdmin/camaras1/camaras1.component';
 import { Celulares1Component } from './pagesAdmin/celulares1/celulares1.component';
 import { Tablets1Component } from './pagesAdmin/tablets1/tablets1.component';
-import { Accesorio1Component } from './pagesAdmin/accesorios1/accesorio1.component';
-import { Camara1Component } from './pagesAdmin/camaras1/camara1.component';
-import { Tablet1Component } from './pagesAdmin/tablets1/tablet1.component';
-import { CelularesService } from './services/celulares.service';
-import { Celular1Component } from './pagesAdmin/celulares1/celular1.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductosService } from './services/productos.service';
+import { NewProductoComponent } from './pagesAdmin/new-producto/new-producto.component';
+import { EditProductoComponent } from './pagesAdmin/edit-producto/edit-producto.component';
 
 
 
@@ -48,15 +46,13 @@ import { HttpClientModule } from '@angular/common/http';
         VendedoresComponent,
         ClientesComponent,
         AdministradoresComponent,
-        Accesorio1Component,
         Accesorios1Component,
-        Celular1Component,
         Celulares1Component,
         Camaras1Component,
-        Camara1Component,
-        Tablet1Component,
         Tablets1Component,
         KeysPipe,
+        NewProductoComponent,
+        EditProductoComponent,
     ],
     exports: [
         NopagefoundComponent,
@@ -69,17 +65,13 @@ import { HttpClientModule } from '@angular/common/http';
         VendedoresComponent,
         ClientesComponent,
         AdministradoresComponent,
-        Accesorio1Component,
         Accesorios1Component,
-        Celular1Component,
         Celulares1Component,
         Camaras1Component,
-        Camara1Component,
-        Tablet1Component,
         Tablets1Component,
     ],
     providers: [
-        CelularesService
+        ProductosService
       ],
 
 })

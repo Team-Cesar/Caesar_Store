@@ -1,3 +1,52 @@
-<p>
-  accesorios1 works!
-</p>
+<h1>Accesorios</h1>
+<br>
+
+<div class="row ">
+    <div class="col-md-12 text-right">
+        <button [routerLink]="['/newProduct']" class="btn btn-outline-primary" type="button" name="button">Nuevo</button>
+    </div>
+</div>
+<br>
+<div class="row animated fadeIn fast">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <div class="table">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col" class="text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let k of accesorios | keys; let i = index">
+                            <th scope="row">{{ i+1}}</th>
+                            <td>{{ accesorios[k].pro_nam }}</td>
+                            <td>{{ accesorios[k].pro_pri }}</td>
+                            <td>{{ accesorios[k].pro_des }}</td>
+                            <td>{{ accesorios[k].pro_sta }}</td>
+                            <td>{{ accesorios[k].pro_sto }}</td>
+                            <td class="text-right w-120">
+                                <button [routerLink]="['/editProduct',accesorios[k].pro_id]" type="button" class="btn btn-outline-success w120">Editar</button>
+                                <button (click)="borrarProducto(accesorios[k].pro_id)" type="button" class="btn btn-outline-danger w120 marginbutton">Borrar</button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div *ngIf="( accesorios | keys).length === 0 && !loading" class="alert alert-info" role="alert">
+                    <strong>No hay</strong> registros que mostrar
+                </div>
+                <div *ngIf="loading" class="alert alert-warning" role="alert">
+                    <strong>Cargando....</strong> por favor espere
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
