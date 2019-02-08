@@ -20,6 +20,19 @@
             <!-- </div> -->
         </div>
         <div class="col col-12" *ngIf="cantidadAComprar !== 0">
+                <div class='row'>
+                        <div class='col-md-2'>Filter by:</div>
+                        <div class='col-md-4'>
+                          <input type='text'
+                                 [(ngModel)]='listFilter' />
+                        </div>
+                      </div>
+                      <div class='row'
+                           *ngIf='listFilter'>
+                        <div class='col-md-6'>
+                          <h4>Filtered by: {{listFilter}}</h4>
+                        </div>
+                      </div>
 
             <div class="table-responsive text-nowrap">
                 <table class="table table-bordered table-striped">
@@ -61,8 +74,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{product.prod_price}}</td>
-                            <td class="">{{product.prod_totalPay}}</td>
+                            <td>{{product.prod_price | currency:'S/':true:'1.2-2'}}</td>
+                            <td class="">{{product.prod_totalPay| currency:'S/':true:'1.2-2'}}</td>
                         </tr>
         
                     </tbody>
@@ -91,7 +104,7 @@
                             <label for="">TOTAL A PAGAR</label>
                         </div>
                         <div class="col col-6 text-right">
-                            {{totalAPagar}}
+                            {{totalAPagar| currency:'S/':true :'1.2-2'}}
                         </div>
                     </div>
                 </div>
@@ -102,7 +115,7 @@
 
     <div class="row d-flex justify-content-end">
         <div class="col col-2 d-flex justify-content-end" >
-            <button class="btn btn-info p-1" [routerLink]="['/addToCart']">Volver a compras</button>
+            <button class="btn btn-info p-1" [routerLink]="['/home']">Volver a compras</button>
         </div>
         <div class="col col-2 d-flex justify-content-end" >
             <button class="btn btn-success p-1" routerLink="/checkout">COMPRAR</button>

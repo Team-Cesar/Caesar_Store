@@ -1,3 +1,67 @@
 .card-title:hover {
     text-decoration: underline;
 }
+
+.c-hh{
+    
+    
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+
+}
+.slide{
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+}
+.c{
+    margin-right: 3rem !important;
+}
+.img-h{
+    width: 268px !important;
+    height: 20rem !important;
+    margin-top: -0.3% !important;
+    border-top-left-radius: 0.5px;
+    border-top-right-radius: 0.5px;
+}
+.img-hh{
+    width: 268px !important;
+    height: 20rem !important;
+    margin-top: 0% !important;
+    border-top-left-radius: 0.5px;
+    border-top-right-radius: 0.5px;
+}
+.ca-h{
+    background-color: #2B1058;
+    color: white;
+   
+   
+}
+.ca-hh{
+    background-color: #2B1058;
+    color: white;
+    height: 200px !important;
+   
+}
+@media (max-width: 410px) {
+    .card-body{
+        background-color: red;
+    }
+    .c-h{
+        margin: 0% 0% 0% 0% !important;
+        padding: 0% 0% 0% 0% !important;
+
+    }
+    
+    .row{
+        
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+    }
+    .c{
+        
+    margin: 0% 0% 0% 0% !important;
+    padding: 0% 0% 0% 0% !important;
+    }
+     
+   
+}

@@ -10,6 +10,7 @@ const indexRoutes = require('./routes/index');
 const categoryRoutes = require('./routes/Category');
 const brandRoutes = require('./routes/Brand');
 const productRoutes = require('./routes/Product');
+const imageRoutes = require('./routes/Image');
 // requerimientos para autenticacion
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -46,7 +47,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 
 // routes
-app.use('/', indexRoutes, categoryRoutes, brandRoutes, productRoutes);
+app.use('/', indexRoutes, categoryRoutes, brandRoutes, productRoutes, imageRoutes);
 //starting the server
 
 app.listen(app.get('port'), ()=>{

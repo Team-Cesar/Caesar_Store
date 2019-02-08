@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/Product';
+import { User } from 'src/app/models/User';
+import { Purchase } from 'src/app/models/Purchase';
+import { ProductPublic } from 'src/app/models/Public/ProductPublic';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+import { ImageProductPublic } from 'src/app/models/Public/ImageProductPublic';
 
 @Component({
   selector: 'app-precompra',
@@ -6,10 +13,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./precompra.component.css']
 })
 export class PrecompraComponent implements OnInit {
+  public purchase:Purchase = new Purchase();
+  public product:Product = new Product();
+  public productPublic:ProductPublic = new ProductPublic();
+  public products:Product[] = new Array<Product>();
+  public imagenes:any[] = [];
+  public imagen1:any;
+  public imagen2:any;
+  public imagen3:any;
+  public imagen4:any;
+  public user:User = new User();
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private _router:Router, private _data:DataService) {
   }
+  
+  ngOnInit() {
+    if(localStorage.getItem('product')){
+      this.productPublic = JSON.parse(localStorage.getItem('product'));
+      this._data.obtenerImagenesDeProducto(this.productPublic.pro_id).subscribe((imagenes)=>{
+        this.imagenes = imagenes;
+        // this.imagenes.forEach((imagen)=>{
 
+        // })
+      });
+    }
+    if(localStorage.getItem('User')){
+      this.user = JSON.parse(localStorage.getItem('User'));
+    }
+  }
+  
+  registrarProducto(){
+    
+    this.purchase.purchase_date = new Date();
+    this.product.prod_name = this.productPublic.pro_nam;
+    this.product.prod_currency = "PEN";
+    this.product.prod_amount = 1;
+    this.product.prod_price = this.productPublic.pro_pri;
+    this.product.prod_state = this.productPublic.pro_sta;
+    this.product.prod_totalPay = this.productPublic.pro_pri;
+    this.product.prod_image = this.imagenes[0].img_url;
+    
+    this.products.push(this.product);
+    this.purchase.prod_details = this.products;
+    // this.purchase.prod_details.push(this.product);
+    this.user.purchase = this.purchase;
+    console.log("[AddToCartComponent|registrarproduct] user:");
+    console.log(this.user);
+
+    localStorage.setItem("User",JSON.stringify(this.user));
+    // this._router.navigateByUrl('/shop-list');
+  }
 }

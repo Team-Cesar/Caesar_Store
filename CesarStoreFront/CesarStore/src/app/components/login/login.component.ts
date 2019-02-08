@@ -7,7 +7,7 @@ import { Purchase } from 'src/app/models/Purchase';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: []
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   credentials:TokenPayload = {
@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar(){
-    console.log("login|ingresar|credentials");
-    console.log(this.credentials);
+    // console.log("login|ingresar|credentials");
+    // console.log(this.credentials);
 
     this.auth.login(this.credentials).subscribe((response) => {
-      console.log("loginComponent|login|response");
-      console.log(response);
+      // console.log("loginComponent|login|response");
+      // console.log(response);
       let user = this.auth.getUserDetails();
       // console.log("loginComponent|login|getUserDetails");
       // console.log(user);
