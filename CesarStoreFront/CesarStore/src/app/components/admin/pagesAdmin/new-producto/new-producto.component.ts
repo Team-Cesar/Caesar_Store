@@ -25,20 +25,7 @@ export class NewProductoComponent implements OnInit {
 
   constructor(private _productoService: ProductosService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
-   /*  const params = this.activatedRoute.snapshot.params;
-    if (params.id) {
-      this._productoService.getProducto(params.id)
-        .subscribe(
-          res => {
-            console.log(res);
-            this.producto = res;
-            this.edit = true;
-          },
-          err => console.log(err)
-        );
-    } */
-  }
+  ngOnInit() { }
 
   saveNewProducto() {
 
@@ -46,22 +33,12 @@ export class NewProductoComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-/*           this.router.navigate(['/producto1']);
- */        },
+          this.router.navigate(['/admin']);
+        },
         err => console.error(err)
       );
       console.log(this.producto);
   }
 
-  updateProducto() {
-  this._productoService.updateProducto(this.producto.pro_id, this.producto)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.router.navigate(['/producto1']);
-        },
-        err => console.error(err)
-      );
-  }
 
 }

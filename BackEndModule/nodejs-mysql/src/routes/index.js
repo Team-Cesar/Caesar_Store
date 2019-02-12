@@ -9,7 +9,7 @@ const { isLoggedIn } = require('../lib/auth');
 router.get('/findcat/:id', async(req, res) => {
     const { id } = req.params;
     const category = await pool.query('SELECT * FROM categories WHERE cat_id = ?', [id]);
-    res.send(category);
+    res.send({ category });
 });
 
 router.get('/findallcat', async(req, res) => {
@@ -27,7 +27,7 @@ router.post('/addcat', async(req, res) => {
         if (!category) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send(category);
+        res.status(200).send({ category });
     });
 });
 
@@ -42,7 +42,7 @@ router.post('/editcat/:id', async(req, res) => {
         if (!category) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send(category);
+        res.status(200).send({ category });
     });
 });
 
@@ -57,12 +57,12 @@ router.get('/delcat/:id', async(req, res) => {
 router.get('/findbra/:id', async(req, res) => {
     const { id } = req.params;
     const brand = await pool.query('SELECT * FROM brands WHERE bra_id = ?', [id]);
-    res.send(brand);
+    res.send({ brand });
 });
 
 router.get('/findallbra', async(req, res) => {
     const brands = await pool.query('SELECT * FROM brands');
-    res.send(brands);
+    res.send({ brands });
 });
 
 router.post('/addbra', async(req, res) => {
@@ -75,7 +75,7 @@ router.post('/addbra', async(req, res) => {
         if (!brand) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send(brand);
+        res.status(200).send({ brand });
     });
 });
 
@@ -90,7 +90,7 @@ router.post('/editbra/:id', async(req, res) => {
         if (!brand) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send(brand);
+        res.status(200).send({ brand });
     });
 });
 
@@ -125,7 +125,7 @@ router.get('/fprobybra/:bra_id', async(req, res) => {
     res.send(products);
 });
 
-router.post('/addpro', async (req,res)=>{
+router.post('/addpro', async(req, res) => {
     let { pro_nam, pro_des, pro_pri, pro_sto, pro_sta, cat_id, bra_id } = req.body;
     pro_pri = parseInt(pro_pri);
     pro_sto = parseInt(pro_sto);
@@ -134,14 +134,14 @@ router.post('/addpro', async (req,res)=>{
     const product = { pro_nam, pro_des, pro_pri, pro_sto, pro_sta, cat_id, bra_id };
     console.log('post|addpro|product');
     console.log(product);
-    await pool.query('INSERT INTO products SET ?', [product], (err, product)=>{
-        if(err){
+    await pool.query('INSERT INTO products SET ?', [product], (err, product) => {
+        if (err) {
             res.status(500).send('Error 500');
         }
         if (!product) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send(product);
+        res.status(200).send({ product });
     });
 });
 
@@ -156,7 +156,7 @@ router.post('/editpro/:id', async(req, res) => {
         if (!product) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send({ product });
+        res.status(200).send(product);
     });
 });
 
@@ -171,29 +171,29 @@ router.get('/delpro/:id', async(req, res) => {
 router.get('/findimg/:id', async(req, res) => {
     const { id } = req.params;
     const image = await pool.query('SELECT * FROM images WHERE img_id = ?', [id]);
-    res.send(image)
+    res.send({ image })
 });
 
 router.get('/fimgbypro/:pro_id', async(req, res) => {
     const { pro_id } = req.params;
     const images = await pool.query('SELECT * FROM images WHERE pro_id = ?', [pro_id]);
-    res.send(images);
+    res.send({ images });
 });
 
-router.post('/addimg', async (req,res)=>{
+router.post('/addimg', async(req, res) => {
     let { img_nam, img_url, pro_id } = req.body;
     pro_id = parseInt(pro_id);
     const image = { img_nam, img_url, pro_id };
     console.log('post|addimg|image');
     console.log(image);
-    await pool.query('INSERT INTO images SET ?', [image], (err, image)=>{
-        if(err){
+    await pool.query('INSERT INTO images SET ?', [image], (err, image) => {
+        if (err) {
             res.status(500).send('Error 500');
         }
         if (!image) {
             res.status(400).send('Error 400');
         }
-        res.status(200).send(image);
+        res.status(200).send({ image });
     });
 });
 

@@ -32,7 +32,7 @@
                             <td>{{ tablets[k].pro_sta }}</td>
                             <td>{{ tablets[k].pro_sto }}</td>
                             <td class="text-right w-120">
-                                <button [routerLink]="['/editProduct']" type="button" class="btn btn-outline-success w120">Editar</button>
+                                <button [routerLink]="['/editProduct',tablets[k].pro_id]" type="button" class="btn btn-outline-success w120">Editar</button>
                                 <button (click)="borrarProducto(tablets[k].pro_id)" type="button" class="btn btn-outline-danger w120 marginbutton">Borrar</button>
                             </td>
 

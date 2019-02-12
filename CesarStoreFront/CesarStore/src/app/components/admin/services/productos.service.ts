@@ -28,8 +28,8 @@ saveProducto(celular: Producto) {
   return this.http.post(`${this.API_URI}/addpro`, celular);
 }
 
-updateProducto( id: any, editarProducto: Producto): Observable<Producto> {
-  return this.http.put(`${this.API_URI}/findpro/${id}`, editarProducto);
+updateProducto(  productoActualizado , id: any): Observable<Producto> {
+  return this.http.post(`${this.API_URI}/editpro/${id}`, productoActualizado);
  }
 
  actualizarCelular( celular: Producto, id: string) {

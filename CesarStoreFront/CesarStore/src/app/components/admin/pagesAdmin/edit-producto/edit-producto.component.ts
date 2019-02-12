@@ -18,6 +18,9 @@ export class EditProductoComponent implements OnInit {
     pro_des: '',
     pro_pri: null,
     pro_sto: null,
+    pro_sta: null,
+    cat_id: null,
+    bra_id: null,
     pro_id: null,
   };
   id: string;
@@ -37,34 +40,27 @@ export class EditProductoComponent implements OnInit {
                }
 
   ngOnInit() {
-   /*  const params = this.activatedRoute.snapshot.params;
+ const params = this.route.snapshot.params;
     if (params.id) {
       this._productoService.getProducto(params.id)
         .subscribe(
           res => {
-            console.log(res);
-            this.producto = res;
-            this.edit = true;
+           console.log(res[0]);
+           this.producto = res[0];
           },
           err => console.log(err)
         );
-    } */
+    }
   }
-editarCelular( ) {
-this._productoService.actualizarCelular( this.producto, this.id )
-.subscribe( data => {
-  console.log(data);
-});
-}
 
 
-
-  updateProducto() {
-  this._productoService.updateProducto(this.producto.pro_id, this.producto)
+  updateProductoH() {
+   console.log(this.producto);
+   this._productoService.updateProducto( this.producto, this.producto.pro_id )
       .subscribe(
         res => {
           console.log(res);
-          this.router.navigate(['/producto1']);
+          this.router.navigate(['/admin']);
         },
         err => console.error(err)
       );
