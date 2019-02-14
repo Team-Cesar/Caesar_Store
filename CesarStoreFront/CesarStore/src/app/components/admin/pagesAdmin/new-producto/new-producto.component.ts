@@ -1,10 +1,8 @@
 import { Component, OnInit, ApplicationRef, HostBinding, ɵConsole } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ProductosService } from '../../services/productos.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Producto } from '../../interfaces/producto.interface';
-import { Marca } from '../../interfaces/marca.interface';
-
-
 
 @Component({
   selector: 'app-new-producto',
@@ -13,6 +11,7 @@ import { Marca } from '../../interfaces/marca.interface';
 })
 export class NewProductoComponent implements OnInit {
 
+  @HostBinding('class') clases = 'row';
 
    producto: Producto = {
     pro_nam: '',
@@ -22,29 +21,9 @@ export class NewProductoComponent implements OnInit {
     pro_id: null,
   };
 
-   marcas: any = [];
-   categorias: any = [];
-
   edit: boolean = false;
 
-  constructor(private _productoService: ProductosService, private router: Router, private activatedRoute: ActivatedRoute) {
-
-      this._productoService.getMarcas()
-      .subscribe(
-        res => {
-          console.log( res );
-          this.marcas = res;
-        }
-      );
-      this._productoService.getCategorias()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.categorias = res;
-        }
-      );
-
-  }
+  constructor(private _productoService: ProductosService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() { }
 
@@ -53,12 +32,13 @@ export class NewProductoComponent implements OnInit {
     this._productoService.saveProducto(this.producto)
       .subscribe(
         res => {
-/*           console.log(res);
- */          this.router.navigate(['/admin']);
+          console.log(res);
+          this.router.navigate(['/admin']);
         },
         err => console.error(err)
       );
       console.log(this.producto);
   }
+
 
 }
