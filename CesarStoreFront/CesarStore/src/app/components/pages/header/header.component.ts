@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { AuthService, TokenPayload } from 'src/app/services/auth.service';
 import { Purchase } from 'src/app/models/Purchase';
@@ -9,6 +9,7 @@ import { Purchase } from 'src/app/models/Purchase';
   styles: []
 })
 export class HeaderComponent {
+  @Input() usuario:string;
   public credentials:TokenPayload = {
     user_username:'',
     // user_email: '',

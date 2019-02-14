@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
 import { Purchase } from '../models/Purchase';
-
+import { environment } from '../../environments/environment';
 
 // interfaces 
 export interface UserDetails{
@@ -36,6 +36,7 @@ interface TokenResponse{
 export class AuthService {
   private token:string;
   public user:User = new User();
+  baseurl = environment.baseUrl;
   
   constructor(private http:HttpClient, private router:Router) { }
 
@@ -79,9 +80,10 @@ export class AuthService {
     let base;
 
     if (type === 'register'){
-      base = this.http.post('https://user-purchases-api.herokuapp.com/create-user', user);
+      base = this.http.post('http://localhost:3000/create-user', user);
+      // base = this.http.post(this.baseurl + '/create-user', user);
     }else if(type === 'login'){
-      base = this.http.post('https://user-purchases-api.herokuapp.com/login', user);
+      base = this.http.post(this.baseurl + '/login', user);
     }
 
     const request = base.pipe(
