@@ -1,123 +1,209 @@
-<!-- <div class="div">
+<div class="div">
   <div class="row">
-    <div class="col col-3">
-      <app-sidevarrog></app-sidevarrog>
-    </div>
-    <div class="col col-9">
-
-        <div class="row card-group bg-light-part">
-          <div class="col-4" *ngFor="let product of productos;let i = index;">
-  
-              <div class="card mb-5">
-                <img src='http://placehold.it/200x200' class="card-img-top" alt="">
-                <div class="card-block text-center">
-                  <div class="row">
-                    <div class="col col-8">
-                        <h3 class="card-title">{{product.prod_nam}}</h3>
-                    </div>
-                    <div class="col col-4">
-                        <p class="bg-light-danger">{{product.prod_pri|currency:'S/':true :'1.2-2'}}</p>
-                    </div>
+      
+      <div class="col-md-9">
+          <div class="container">
+              <div class="card-columns">
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://www.samys.com/imagesproc/L2ltYWdlcy9wcm9kdWN0L21haW4vUy0wNDc0Nzl4MTUwMC5qcGc=_H_SH400_MW400.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Canon EOS 5D Mark IV Digital SLR Camera Body</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$2,999.00
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
+                      </div>
                   </div>
-                  
-                  <div class="row">
-                    <div class="col col-12">
-                        <label class="card-text">{{product.prod_des}}</label>
-                    </div>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://i5.walmartimages.com/asr/dbe51dfc-4126-4141-8cb9-313110c12a4d_1.408c3f08096b19a622fd0312fd70f9db.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Canon G7X Mark II PowerShot 20.1MP BLACK Digital Camera</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$469.00
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
+                      </div>
                   </div>
-                  
-                  <div class="row">
-                      <div class="col col-6">
-                          <p class="card-text"><small class="text-muted">{{product.prod_bra}}</small></p>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://www.galaxyandorra.es/8134-home_default/canon-sx620-garantia-espanola.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Canon Sx620 </h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$224.40
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
                       </div>
-                      <div class="col col-6">
-                          <p class="card-text"><small class="text-muted">{{product.prod_cat}}</small></p>
+                  </div>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://gd.image-gmkt.com/BEST-PRICE-SONY-CYBER-SHOT-DSC-WX500-DIGITAL-CAMERA-BLACK/li/798/898/534898798.g_400-w_g.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Sony Cyber-shot DSC-WX500 Digital Camera BLACK</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$589.00
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col col-12">
-                          <button class="btn-block btn-outline-danger ml-1 mr-4" alt="" (click)="idProduct()" style="font-size: .9rem;">Ver más</button>
+                  </div>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://www.samys.com/imagesproc/L2ltYWdlcy9wcm9kdWN0L21haW4vUy0wNTYyMDd4MjAwMF8xLmpwZw==_H_SH400_MW400.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Sony Alpha a7 III Mirrorless Digital Camera Body</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$1,998.00
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
                       </div>
-                    </div>
-                  
-                  
-                  
-                </div>
+                  </div>
+                  <div class="card mb-4 shadow-sm" style="margin-top:3.7rem;">
+                      <img class="card-img-top" src="https://i.blogs.es/fbfe30/a7rii/450_1000.jpg" alt="Card image cap">
+                      <div class="card-body r-all ">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>CSC Sony A7R II</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$$$$
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center ">
+                              <div class="btn-group ">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://www.samys.com/imagesproc/L2ltYWdlcy9wcm9kdWN0L21haW4vUy0wNDgzNzd4MTUwMF8xLmpwZw==_H_SH400_MW400.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row text-center">
+                              <div class="col col-8">
+                                  <h4>Panasonic LUMIX DC-GH5 Mirrorless Micro Four Thirds Digital Camera </h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$1,597.99
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group ">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/F/u/Full-HD-Camcoder-Camera-7916033.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Panasonic Full HD Camcoder Camera</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$120.00
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="http://2crazy.com/345-home_default/panasonic-hc-mdh2-1080p-full-hd-flash-memory-camcorder-21x-optical-zoom-black.jpg" alt="Card image cap">
+                      <div class="card-body r-all">
+                          <div class="row  text-center">
+                              <div class="col col-8">
+                                  <h4>Panasonic HC-MDH2 1080p Full HD Flash Memory Camcorder - 21x Optical Zoom</h4>
+                              </div>
+                              <div class="col col-4">
+                                  <p class="card-text ">$790.00
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-danger">Mas detalles...</button>
+                                  <!-- <button type="button" class="btn btn-sm btn-danger">Edit</button> -->
+                              </div>
+                              <small class="text-muted ml-auto">stock</small>
+                          </div>
+                      </div>
+                  </div>
               </div>
-  
           </div>
-        </div>
-
-
-    </div>
+      </div>
   </div>
-</div> -->
-
-<!-- <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contact</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Follow on Twitter</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-          <strong>Album</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
-  </header> -->
-
-  <main role="main">
-
-      <div class="py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-md-4" *ngFor="let product of productos; let i=index;">
-
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="http://placehold.it/200x200" alt="Card image cap">
-                <div class="card-body">
-                  <div class="row text-center">
-                    <div class="col col-8">
-                      <h4>{{product.pro_nam}}</h4>
-                    </div>
-                    <div class="col col-4">
-                      <p class="card-text bg-light-inverse">{{product.pro_pri|currency:'S/':true:'1.2-2'}}</p>
-                    </div>
-                  </div>
-                  <p class="card-text">{{product.pro_des}}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="VerProducto(i)">Mas detalles...</button>
-                      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
-                    </div>
-                    <small class="text-muted ml-auto">stock:{{product.pro_sto}}</small>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </main>
+</div>
