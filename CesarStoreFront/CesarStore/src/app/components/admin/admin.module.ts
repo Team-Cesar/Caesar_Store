@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from './services/productos.service';
 import { NewProductoComponent } from './pagesAdmin/new-producto/new-producto.component';
 import { EditProductoComponent } from './pagesAdmin/edit-producto/edit-producto.component';
+import { EditarComponent } from './pagesAdmin/editar/editar.component';
 
 
 
@@ -53,6 +54,7 @@ import { EditProductoComponent } from './pagesAdmin/edit-producto/edit-producto.
         KeysPipe,
         NewProductoComponent,
         EditProductoComponent,
+        EditarComponent,
     ],
     exports: [
         NopagefoundComponent,

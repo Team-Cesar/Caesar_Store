@@ -12,6 +12,7 @@ import { Tablets1Component } from './pagesAdmin/tablets1/tablets1.component';
 import { ModuleWithProviders } from '@angular/core';
 import { NewProductoComponent } from './pagesAdmin/new-producto/new-producto.component';
 import { EditProductoComponent } from './pagesAdmin/edit-producto/edit-producto.component';
+import { EditarComponent } from './pagesAdmin/editar/editar.component';
 
 const adminRoutes: Routes = [
     {
@@ -25,6 +26,7 @@ const adminRoutes: Routes = [
             { path: 'accesorios1', component: Accesorios1Component },
             { path: 'vendedores1', component: VendedoresComponent },
             { path: 'clientes1', component: ClientesComponent },
+            { path: 'editar', component: EditarComponent },
             { path: 'editProduct/:id', component: EditProductoComponent },
             { path: 'administradores1', component: AdministradoresComponent },
 

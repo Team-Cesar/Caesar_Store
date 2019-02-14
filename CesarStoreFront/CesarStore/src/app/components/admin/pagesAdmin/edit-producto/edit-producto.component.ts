@@ -25,6 +25,8 @@ export class EditProductoComponent implements OnInit {
   };
   id: string;
   edit: boolean = false;
+  marcas: any = [];
+   categorias: any = [];
 
   constructor(private _productoService: ProductosService,
               private router: Router,
@@ -37,6 +39,22 @@ export class EditProductoComponent implements OnInit {
                   }
 
                 });
+                this._productoService.getMarcas()
+                .subscribe(
+                  res => {
+                    console.log( res );
+                    this.marcas = res;
+                  }
+                );
+                this._productoService.getCategorias()
+                .subscribe(
+                  res => {
+                    console.log(res);
+                    this.categorias = res;
+                  }
+                );
+
+
                }
 
   ngOnInit() {

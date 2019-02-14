@@ -62,7 +62,7 @@ router.get('/findbra/:id', async(req, res) => {
 
 router.get('/findallbra', async(req, res) => {
     const brands = await pool.query('SELECT * FROM brands');
-    res.send({ brands });
+    res.send(brands);
 });
 
 router.post('/addbra', async(req, res) => {
