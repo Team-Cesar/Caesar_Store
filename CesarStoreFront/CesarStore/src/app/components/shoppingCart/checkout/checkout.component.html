@@ -2,23 +2,6 @@
   <div class="row">
     <div class="col col-12">
 
-      <!-- fila de preguntas -->
-      <!-- <div class="row">
-        <div class="col col-12">
-          <div class="row mb-3">
-            <div class="col col-6" *ngIf="user.user_name == 'Invitado'">
-              <p>¿Eres cliente?</p>
-              <a class="">Ingresa a tu cuenta</a>
-            </div>
-            <div class="col col-6">
-              <p>Si aún no tienes una cuenta</p>
-              <a class="">Regístrate aquí</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr> -->
-
       <h2>Detalles de compra</h2>
       <!-- fila del formulario -->
       <div class="row">
@@ -391,6 +374,7 @@
       </div>
     </div>
   </div>
+  <div class="alert alert-danger col-12" *ngIf="mensaje">{{mensaje}}</div>
   <div class="row">
     <div class="col col-6 text-center">
       <button class="btn btn-danger pl-2 pr-2 pt-0 pb-0" routerLink="/shop-list">
@@ -399,6 +383,6 @@
     </div>
     <div class="col col-6 text-center">
       <!-- <ngx-paypal (click)="comprar()" [config]="payPalConfig"></ngx-paypal> -->
-      <button class="btn btn-info pt-0 pb-0" (click)="comprar()" routerLink="/thanks">Comprar</button>
+      <button class="btn btn-info pt-0 pb-0" (click)="comprar()">Comprar</button>
     </div>
   </div>

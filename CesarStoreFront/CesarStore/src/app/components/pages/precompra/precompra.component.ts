@@ -32,7 +32,11 @@ export class PrecompraComponent implements OnInit {
     }
     if(localStorage.getItem('User')){
       this.user = JSON.parse(localStorage.getItem('User'));
-      // this.products = 
+      if(this.user.purchase.prod_details){
+        this.products = this.user.purchase.prod_details;
+      }else{
+        this.products = new Array<Product>();
+      }
     }
   }
   
@@ -45,26 +49,12 @@ export class PrecompraComponent implements OnInit {
       this.product.prod_state = this.productPublic.pro_sta;
       this.product.prod_totalPay = this.productPublic.pro_pri;
       this.product.prod_image = this.imagenes[0].img_url;
-      this.user.purchase.prod_details.push(this.product);
+      
+      this.products.push(this.product);
+      this.user.purchase.prod_details = this.products;
       this.user.purchase.purchase_date = new Date();
     }
-    // this.purchase.purchase_date = new Date();
-    // this.product.prod_name = this.productPublic.pro_nam;
-    // this.product.prod_currency = "PEN";
-    // this.product.prod_amount = 1;
-    // this.product.prod_price = this.productPublic.pro_pri;
-    // this.product.prod_state = this.productPublic.pro_sta;
-    // this.product.prod_totalPay = this.productPublic.pro_pri;
-    // this.product.prod_image = this.imagenes[0].img_url;
-    
-    // this.products.push(this.product);
-    // this.purchase.prod_details = this.products;
-    // this.purchase.prod_details.push(this.product);
-    // this.user.purchase = this.purchase;
-    console.log("[AddToCartComponent|registrarproduct] user:");
-    console.log(this.user);
 
     localStorage.setItem("User",JSON.stringify(this.user));
-    // this._router.navigateByUrl('/shop-list');
   }
 }

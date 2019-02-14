@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Purchase } from 'src/app/models/Purchase';
 import { Send } from 'src/app/models/Send';
 import { Product } from 'src/app/models/Product';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -15,7 +16,6 @@ import { Product } from 'src/app/models/Product';
 export class CheckoutComponent implements OnInit {
   public user:User = new User();
   public purchase:Purchase = new Purchase();
-  // public purchases:Array<Purchase> = new Array<Purchase>();
   public products:Array<Product> = new Array<Product>();
   public send:Send = new Send();
 
@@ -23,7 +23,8 @@ export class CheckoutComponent implements OnInit {
   public mensaje:string;
   
   constructor(private _router:Router,
-              private _data:DataService) {
+              private _data:DataService,
+              private _auth:AuthService) {
 
     if(localStorage.getItem("User")){
       this.user = JSON.parse(localStorage.getItem("User"));
@@ -128,20 +129,15 @@ export class CheckoutComponent implements OnInit {
   // }
 
   comprar(){
-    // this.initConfig();
-    console.log("CheckOutComponent|comprar|send");
-    console.log(this.send);
-    // this.purchase.send_details = this.send;
-    this.user.purchase.send_details = this.send;
-    localStorage.setItem("User",JSON.stringify(this.user));
-    // this._data.registrarCompra(this.user.user_name,this.purchases);
-    console.log("CheckOutComponent|comprar|user");
-    console.log(this.user);
-
-    this._data.registrarCompra(this.user.user_username, this.user.purchase).subscribe((response)=>{
-      console.log("checkOutComponent|comprar|registrarCompra|response");
-      console.log(response);
-      // this._router.navigateByUrl('/thanks');
-    });
+    if(this._auth.isLoggedIn()){
+      this.user.purchase.send_details = this.send;
+      localStorage.setItem("User",JSON.stringify(this.user));
+  
+      this._data.registrarCompra(this.user.user_username, this.user.purchase).subscribe((response)=>{
+        this._router.navigateByUrl('/thanks');
+      });
+    }else{
+      this.mensaje = "Tiene que ingresar a su cuenta primero";
+    }
   }
 }

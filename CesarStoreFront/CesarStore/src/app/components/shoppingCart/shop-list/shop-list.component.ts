@@ -20,21 +20,16 @@ export class ShopListComponent implements OnInit {
   public cantidadAComprar:number = 0;
 
   constructor(private _dataService:DataService, private _auth:AuthService){
-    if(this._auth.isLoggedIn()){
+    if(localStorage.getItem('User')){
       this.user = JSON.parse(localStorage.getItem('User'));
-      this.purchase = this.user.purchase;
+      this.products = this.user.purchase.prod_details;
     }
 
-    this.products = this.purchase.prod_details;
     if(this.products != null){
       this.products.forEach((product)=>{
         this.totalAPagar = this.totalAPagar + product.prod_price;
       });
       this.cantidadAComprar = this.products.length;
-    }else{
-      this.products = new Array<Product>();
-      this.totalAPagar = 0;
-      this.cantidadAComprar = 0;
     }
     // console.log("[ShopListComponent|constructor] user:");
     // console.log(this.user);

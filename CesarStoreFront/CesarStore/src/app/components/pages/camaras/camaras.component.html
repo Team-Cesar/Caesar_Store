@@ -1,14 +1,14 @@
   <main role="main">
-
-      <div class="py-5 bg-light">
-        <div class="container">
-
+    <div class="py-5 bg-light">
+      <div class="container">
+        <h1>CAMARAS</h1>
+        
           <div class="row">
             <div class="col-md-4" *ngFor="let product of productos; let i=index;">
 
-              <div class="card mb-4 shadow-sm">
+              <div class="card mb-4 shadow-sm border-bottom border-dark">
                 <img class="card-img-top" src="{{imagenes[i].img_url}}" *ngIf="start == true">
-                <div class="card-body">
+                <div class="card-body bg-light-inverse">
                   <div class="row text-center">
                     <div class="col col-8">
                       <h4>{{product.pro_nam}}</h4>
@@ -23,7 +23,7 @@
                       <button type="button" class="btn btn-sm btn-outline-secondary" (click)="VerProducto(i)">Mas detalles...</button>
                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                     </div>
-                    <small class="text-muted ml-auto">stock:{{product.pro_sto}}</small>
+                    <small class="text-muted ml-auto">stock:</small> <label class="badge badge-info">{{product.pro_sto}}</label>
                   </div>
                 </div>
               </div>
