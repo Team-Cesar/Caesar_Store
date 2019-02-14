@@ -1,7 +1,7 @@
 <div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary" style="background-color: #1E0B3E !important; ">
-        <a class="navbar-brand text-white" routerLink="/home"><strong>Caesar</strong> Store</a>
+        <a class="navbar-brand text-white" routerLink="/home"><strong>Cesar</strong> Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <img src="../../../../assets/icons/evento.png" alt="">
@@ -44,8 +44,9 @@
                 </li>
 
                 <li class="nav-item text-white d-flex align-items-center" *ngIf="isLogged">
-                    <!-- Bienvenido: <p class="badge badge-danger" for="">{{user.user_username}}</p> -->
-                    Bienvenido:   <strong>{{user.user_username}}</strong>
+                    <div class="d-flex justify-content-between">
+                        <div class="">Bienvenido: </div> <strong class="">{{user.user_username}}</strong>
+                    </div>
                 </li>
 
                 <li class="nav-item text-white d-flex align-items-center ml-2 mr-2" *ngIf="isLogged">

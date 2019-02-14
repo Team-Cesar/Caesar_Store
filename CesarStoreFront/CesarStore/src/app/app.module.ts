@@ -15,16 +15,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 import { AuthService } from './services/auth.service';
-
-// FRONT-ROGELIO
-import { BodyComponent } from './components/body/body.component';
-
-import { PhoneComponent } from './components/body/phone/phone.component';
-import { TabletComponent } from './components/body/tablet/tablet.component';
-import { CameraComponent } from './components/body/camera/camera.component';
+import { DataService } from './services/data.service';
 
 import { APP_ROUTING } from './app.routes';
-import { DataService } from './services/data.service';
 
 
 @NgModule({
@@ -33,12 +26,7 @@ import { DataService } from './services/data.service';
     LoginComponent,
     RegisterComponent,
 
-    AppComponent,
-    BodyComponent,
-    
-    PhoneComponent,
-    TabletComponent,
-    CameraComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

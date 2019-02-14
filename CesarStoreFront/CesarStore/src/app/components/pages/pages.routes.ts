@@ -17,17 +17,17 @@ const pagesRoutes: Routes = [
         path: '',
         component: PagesComponent,
         children: [
-        { path: 'celulares', component: CelularesComponent },
-        { path: 'accesorios', component: AccesoriosComponent },
-        { path: 'camaras', component: CamarasComponent },
-        { path: 'tablets', component: TabletsComponent },
-        { path: 'nopagefound', component: NopagefoundComponent },
-        { path: 'compra', component: PrecompraComponent },
-        { path: 'home', component: HomeComponent },
-        { path: '', redirectTo: '/home', pathMatch: 'full' },
+            { path: 'celulares', component: CelularesComponent },
+            { path: 'accesorios', component: AccesoriosComponent },
+            { path: 'camaras', component: CamarasComponent },
+            { path: 'tablets', component: TabletsComponent },
+            { path: 'nopagefound', component: NopagefoundComponent },
+            { path: 'compra', component: PrecompraComponent },
+            { path: 'home', component: HomeComponent },
+            { path: '', redirectTo: '/home', pathMatch: 'full' },
         ]
     }
-// tslint:disable-next-line:eofline
+    // tslint:disable-next-line:eofline
 ];
 
-export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );
+export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);

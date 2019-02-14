@@ -4,24 +4,13 @@ import { ModuleWithProviders } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { BodyComponent } from './components/body/body.component';
-import { PhoneComponent } from './components/body/phone/phone.component';
-import { TabletComponent } from './components/body/tablet/tablet.component';
-import { CameraComponent } from './components/body/camera/camera.component';
-
-
 
 const APP_ROUTES: Routes = [
 
+  { path: '', loadChildren: './pages/pages.module#PagesModule' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'admin', component: AdminComponent },
-
-  { path: 'home', component: BodyComponent },
-  { path: 'phone', component: PhoneComponent },
-  { path: 'tablet', component: TabletComponent },
-  { path: 'camera', component: CameraComponent },
-  { path: 'cart', component: CameraComponent },
+  { path: 'admin', component: AdminComponent }
 ];
 
 
