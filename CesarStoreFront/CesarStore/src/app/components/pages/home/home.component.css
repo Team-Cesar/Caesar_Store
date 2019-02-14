@@ -1,6 +1,12 @@
 .card-title:hover {
     text-decoration: underline;
 }
+.s{
+    background-color: #2B1058;
+}
+.c-ho{
+    width: 100%;height: 100%;padding-top: 1px !important;
+}
 
 .c-hh{
     
@@ -43,14 +49,8 @@
    
 }
 @media (max-width: 410px) {
-    .card-body{
-        background-color: red;
-    }
-    .c-h{
-        margin: 0% 0% 0% 0% !important;
-        padding: 0% 0% 0% 0% !important;
 
-    }
+
     
     .row{
         
@@ -61,6 +61,14 @@
         
     margin: 0% 0% 0% 0% !important;
     padding: 0% 0% 0% 0% !important;
+    }
+    .s{
+        margin-bottom: 2rem !important;
+        margin-left: 1rem !important;
+        
+    }
+    .img-h{
+        width: 100% !important;
     }
      
    

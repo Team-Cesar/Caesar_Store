@@ -42,6 +42,7 @@ mongoose.connect('mongodb://localhost:27017/CesarStore')
     .then(db => console.log('MongoDb on. Enjoy :3'))
     .catch(err => console.log(err));
 
+    
 // middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));

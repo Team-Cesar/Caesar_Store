@@ -17,11 +17,7 @@ export class PrecompraComponent implements OnInit {
   public product:Product = new Product();
   public productPublic:ProductPublic = new ProductPublic();
   public products:Product[] = new Array<Product>();
-  public imagenes:any[] = [];
-  public imagen1:any;
-  public imagen2:any;
-  public imagen3:any;
-  public imagen4:any;
+  public imagenes:Array<ImageProductPublic> = new Array<ImageProductPublic>();
   public user:User = new User();
 
   constructor(private _router:Router, private _data:DataService) {
@@ -32,9 +28,6 @@ export class PrecompraComponent implements OnInit {
       this.productPublic = JSON.parse(localStorage.getItem('product'));
       this._data.obtenerImagenesDeProducto(this.productPublic.pro_id).subscribe((imagenes)=>{
         this.imagenes = imagenes;
-        // this.imagenes.forEach((imagen)=>{
-
-        // })
       });
     }
     if(localStorage.getItem('User')){
@@ -43,7 +36,6 @@ export class PrecompraComponent implements OnInit {
   }
   
   registrarProducto(){
-    
     this.purchase.purchase_date = new Date();
     this.product.prod_name = this.productPublic.pro_nam;
     this.product.prod_currency = "PEN";

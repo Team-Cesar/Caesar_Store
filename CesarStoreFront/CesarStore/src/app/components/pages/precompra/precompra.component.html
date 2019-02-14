@@ -9,16 +9,16 @@
                             <div class="col col-12" style="border: 1px solid red;">
                                 <div class="carousel-inner">
                                     <div class="active item carousel-item" data-slide-number="key">
-                                        <img src='{{imagenes[0].img_url}}' class="img-fluid w-100">
+                                        <img [src]='imagenes[0].img_url' class="img-fluid w-100" *ngIf="imagenes.length !== 0">
                                     </div>
                                     <div class="item carousel-item" data-slide-number="1">
-                                        <img src="{{imagenes[1].img_url}}" class="img-fluid w-100">
+                                        <img [src]='imagenes[1].img_url' class="img-fluid w-100" *ngIf="imagenes.length !== 0">
                                     </div>
                                     <div class="item carousel-item" data-slide-number="2">
-                                        <img src="{{imagenes[2].img_url}}" class="img-fluid w-100">
+                                        <img [src]='imagenes[2].img_url' class="img-fluid w-100" *ngIf="imagenes.length !== 0">
                                     </div>
                                     <div class="item carousel-item" data-slide-number="3">
-                                        <img src="{{imagenes[3].img_url}}" class="img-fluid w-100">
+                                        <img src='{{imagenes[3].img_url}}' class="img-fluid w-100" *ngIf="imagenes.length !== 0">
                                     </div>
                                 </div>
                             </div>
@@ -26,22 +26,22 @@
                                 <ul class="carousel-indicators list-inline ul m-auto mw-100" style="border: 1px solid black; overflow-anchor: initial">
                                     <li class="list-inline-item active" style="border: 1px solid purple; width: 6.5rem;"> 
                                         <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                                            <img src="{{imagenes[0].img_url}}" class="img-fluid mw-20">
+                                            <img src="{{imagenes[0].img_url}}" class="img-fluid mw-20" *ngIf="imagenes.length !== 0">
                                         </a>
                                     </li>
                                     <li class="list-inline-item" style="border: 1px solid purple; width: 6.5rem;">
                                         <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                                            <img src="{{imagenes[1].img_url}}" class="img-fluid img">
+                                            <img src="{{imagenes[1].img_url}}" class="img-fluid img" *ngIf="imagenes.length !== 0">
                                         </a>
                                     </li>
                                     <li class="list-inline-item" style="border: 1px solid purple; width: 6.5rem;">
                                         <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                                            <img src="{{imagenes[2].img_url}}" class="img-fluid img">
+                                            <img src="{{imagenes[2].img_url}}" class="img-fluid img" *ngIf="imagenes.length !== 0">
                                         </a>
                                     </li>
                                     <li class="list-inline-item" style="border: 1px solid purple; width: 6.5rem;">
                                         <a id="carousel-selector-3" data-slide-to="3" data-target="#myCarousel">
-                                            <img src="{{imagenes[3].img_url}}" class="img-fluid img">
+                                            <img src="{{imagenes[3].img_url}}" class="img-fluid img" *ngIf="imagenes.length !== 0">
                                         </a>
                                     </li>
                 
