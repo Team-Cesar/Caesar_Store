@@ -7,10 +7,10 @@ import { AdminComponent } from './components/admin/admin.component';
 
 const APP_ROUTES: Routes = [
 
-  { path: '', loadChildren: './pages/pages.module#PagesModule' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent },
+  { path: '', loadChildren: './pages/pages.module#PagesModule' },
 ];
 
 

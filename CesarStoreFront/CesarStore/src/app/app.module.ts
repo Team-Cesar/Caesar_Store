@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 // modulos
-import { PagesModule } from './components/pages/pages.module';
 import { ShoppingModule } from './components/shoppingCart/shoppingCart.module';
 import { AdminModule } from './components/admin/admin.module';
 
@@ -18,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 
 import { APP_ROUTING } from './app.routes';
+import { PagesModule } from './components/pages/pages.module';
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { APP_ROUTING } from './app.routes';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-
     AppComponent
   ],
   imports: [

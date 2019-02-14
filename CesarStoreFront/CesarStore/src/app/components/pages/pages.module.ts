@@ -18,6 +18,7 @@ import { SidevarrogComponent } from './sidevarrog/sidevarrog.component';
 import { PrecompraComponent } from './precompra/precompra.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { PagesContentComponent } from './pages-content.component';
 
 @NgModule({
 
@@ -32,7 +33,8 @@ TabletsComponent,
 PagesComponent,
 RedesComponent,
 SidevarrogComponent,
-PrecompraComponent
+PrecompraComponent,
+PagesContentComponent
 
 ],
 exports: [
