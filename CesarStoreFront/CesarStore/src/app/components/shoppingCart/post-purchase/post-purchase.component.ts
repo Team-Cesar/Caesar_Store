@@ -7,7 +7,7 @@ import { Purchase } from 'src/app/models/Purchase';
 @Component({
   selector: 'app-post-purchase',
   templateUrl: './post-purchase.component.html',
-  styleUrls: ['./post-purchase.component.sass']
+  styleUrls: []
 })
 export class PostPurchaseComponent implements OnInit {
   // propiedades de clase

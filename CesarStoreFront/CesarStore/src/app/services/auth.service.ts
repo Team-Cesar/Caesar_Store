@@ -80,8 +80,8 @@ export class AuthService {
     let base;
 
     if (type === 'register'){
-      base = this.http.post('http://localhost:3000/create-user', user);
-      // base = this.http.post(this.baseurl + '/create-user', user);
+      // base = this.http.post('http://localhost:3000/create-user', user);
+      base = this.http.post(this.baseurl + '/create-user', user);
     }else if(type === 'login'){
       base = this.http.post(this.baseurl + '/login', user);
     }

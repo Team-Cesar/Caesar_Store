@@ -10,8 +10,6 @@ import { PagesModule } from './components/pages/pages.module';
 import { ShoppingModule } from './components/shoppingCart/shoppingCart.module';
 import { AdminModule } from './components/admin/admin.module';
 
-
-
 // FRONT-OMAR
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -25,7 +23,6 @@ import { PhoneComponent } from './components/body/phone/phone.component';
 import { TabletComponent } from './components/body/tablet/tablet.component';
 import { CameraComponent } from './components/body/camera/camera.component';
 
-import { CarritoComponent } from './components/carrito/carrito.component';
 import { APP_ROUTING } from './app.routes';
 import { DataService } from './services/data.service';
 
@@ -41,8 +38,7 @@ import { DataService } from './services/data.service';
     
     PhoneComponent,
     TabletComponent,
-    CameraComponent,
-    CarritoComponent
+    CameraComponent
   ],
   imports: [
     BrowserModule,

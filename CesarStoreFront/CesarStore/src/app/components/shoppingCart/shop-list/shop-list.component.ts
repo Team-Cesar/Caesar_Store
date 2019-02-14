@@ -19,36 +19,27 @@ export class ShopListComponent implements OnInit {
   public totalAPagar:number = 0.0;
   public cantidadAComprar:number = 0;
 
-  public productosFiltrados: Product[] = [];
-  _listFilter = '';
-  get listFilter(): string {
-    return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.productosFiltrados = this.listFilter ? this.performFilter(this.listFilter) : this.products;
-  }
   constructor(private _dataService:DataService, private _auth:AuthService){
-    if(localStorage.getItem('User')){
+    if(this._auth.isLoggedIn()){
       this.user = JSON.parse(localStorage.getItem('User'));
       this.purchase = this.user.purchase;
     }
 
-    // this.products = this.purchase.prod_details;
-    // if(this.products != null){
-    //   this.products.forEach((product)=>{
-    //     this.totalAPagar = this.totalAPagar + product.prod_price;
-    //   });
-    //   this.cantidadAComprar = this.products.length;
-    // }else{
-    //   this.products = new Array<Product>();
-    //   this.totalAPagar = 0;
-    //   this.cantidadAComprar = 0;
-    // }
-    // // console.log("[ShopListComponent|constructor] user:");
-    // // console.log(this.user);
-    // console.log("[ShopListComponent|constructor] products:");
-    // console.log(this.products);
+    this.products = this.purchase.prod_details;
+    if(this.products != null){
+      this.products.forEach((product)=>{
+        this.totalAPagar = this.totalAPagar + product.prod_price;
+      });
+      this.cantidadAComprar = this.products.length;
+    }else{
+      this.products = new Array<Product>();
+      this.totalAPagar = 0;
+      this.cantidadAComprar = 0;
+    }
+    // console.log("[ShopListComponent|constructor] user:");
+    // console.log(this.user);
+    console.log("[ShopListComponent|constructor] products:");
+    console.log(this.products);
   }
 
   ngOnInit(){

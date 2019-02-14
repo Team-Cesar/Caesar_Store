@@ -6,17 +6,18 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
 import { ProductPublic } from '../models/Public/ProductPublic';
 import { ImageProductPublic } from '../models/Public/ImageProductPublic';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  
+  baseUrl = environment.baseUrl;
 
   constructor(private _http: HttpClient) { }
 
   obtenerUsuario(id): Observable<any> {
-    return this._http.get('http://localhost:3000/get-user/' + id);
+    return this._http.get(this.baseUrl + '/get-user/' + id);
   }
 
   // registrarCompra(user_username:string, purchase:Purchase):void{
@@ -27,20 +28,20 @@ export class DataService {
       purchase,
       user_username
     }
-    return this._http.post('https://user-purchases-api.herokuapp.com/push-purchase', data);
+    return this._http.post(this.baseUrl + '/push-purchase', data);
   }
 
   obtenerProductosPorCategoria(cat_id: number): Observable<any> {
-    return this._http.get('https://product-management-api.appspot.com/fprobycat/'+cat_id);
+    return this._http.get(this.baseUrl + '/fprodbycat/'+cat_id);
   }
   // obtenerCategoria(cat_id: number): Observable<any> {
   //   return this._http.get('http://localhost:4000/findallbra);
   // }
   obtenerImagenesDeProducto(pro_id:number):Observable<any> {
-    return this._http.get('https://product-management-api.appspot.com/fimgbypro/'+pro_id);
+    return this._http.get(this.baseUrl + '/fimgbyprod/'+pro_id);
   }
   obtenerMarca(bra_id:number):Observable<any> {
-    return this._http.get('https://product-management-api.appspot.com/findbra/'+bra_id);
+    return this._http.get(this.baseUrl + '/findbrand/'+bra_id);
   }
 }
 

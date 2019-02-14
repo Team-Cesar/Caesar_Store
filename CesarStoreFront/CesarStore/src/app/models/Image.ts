@@ -1,4 +1,4 @@
 export class Image{
-    image_name:String;
-    image_url:String;
+    image_name:string;
+    image_url:string;
 }
