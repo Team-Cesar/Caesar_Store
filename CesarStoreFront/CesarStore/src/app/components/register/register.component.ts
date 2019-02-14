@@ -33,8 +33,9 @@ export class RegisterComponent implements OnInit {
     // console.log(this.credentials);
     this.credentials.user_email = this.email_1+'@'+this.email_2;
 
-    if (this.credentials.user_pass !== this.credentials.pass_conf) this.mensaje = "Las contraseñas no coinciden";
-    if(this.credentials.user_pass.length < 6) this.mensaje = "La contraseña tiene longitud menor a 6 digitos";
+    if (this.credentials.user_pass !== this.credentials.pass_conf || this.credentials.user_pass.length < 6) {
+      this.mensaje = "Las contraseñas no coinciden o La contraseña tiene longitud menor a 6 digitos";
+    } 
     else{
       console.log("[register] credentials:");
       console.log(this.credentials);

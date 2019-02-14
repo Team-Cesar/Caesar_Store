@@ -1,0 +1,8 @@
+- No hay problema si usamos datos falsos para la presentacion
+- Enfoque en el negocio
+- En el problema, la solución que le vamos dando. 
+- Ver la competencia y el plus que vamos dando. 
+- 15 minutos codigo.
+- ¿Por que usamos determinadas tecnologias?
+- Mostrar repositorios
+- Mostrar pizarra scrum

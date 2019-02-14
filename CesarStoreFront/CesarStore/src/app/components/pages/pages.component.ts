@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/User';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-pages',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PagesComponent implements OnInit {
-
-  constructor() { }
+  public user:User = new User();
+  constructor(private _auth:AuthService) { 
+    
+  }
 
   ngOnInit() {
   }
