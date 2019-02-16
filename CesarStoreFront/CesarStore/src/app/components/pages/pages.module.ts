@@ -45,12 +45,11 @@ HeaderComponent,
 HomeComponent,
 NopagefoundComponent,
 TabletsComponent,
-PagesComponent
+PagesComponent,
 ],
 imports: [
     BrowserModule,
     PAGES_ROUTES,
-    RouterModule,
     FormsModule
 ],
 providers: [AuthService],

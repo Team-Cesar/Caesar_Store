@@ -9,27 +9,27 @@ import { map } from 'rxjs/operators';
 })
 export class ProductosService {
 
-  API_URI = 'http://localhost:4000';
+  API_URI = 'http://localhost:3000';
 constructor( private http: HttpClient) {}
 
 getProductos( id: number) {
-  return this.http.get(`${this.API_URI}/fprobycat/${id}`);
+  return this.http.get(`${this.API_URI}/fprodbycat/${id}`);
 }
 
 getProducto( id: string) {
-return this.http.get(`${this.API_URI}/findpro/${id}`);
+return this.http.get(`${this.API_URI}/findprod/${id}`);
 }
 
 borrarProducto(id: string) {
-return this.http.delete(`${this.API_URI}/delpro/${id}`);
+return this.http.delete(`${this.API_URI}/delprod/${id}`);
 }
 
 saveProducto(celular: Producto) {
-  return this.http.post(`${this.API_URI}/addpro`, celular);
+  return this.http.post(`${this.API_URI}/addprod`, celular);
 }
 
 updateProducto(  productoActualizado , id: any): Observable<Producto> {
-  return this.http.post(`${this.API_URI}/editpro/${id}`, productoActualizado);
+  return this.http.post(`${this.API_URI}/editprod/${id}`, productoActualizado);
  }
 
  actualizarCelular( celular: Producto, id: string) {

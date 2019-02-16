@@ -13,6 +13,5 @@ const APP_ROUTES: Routes = [
   { path: '', loadChildren: './pages/pages.module#PagesModule' },
 ];
 
-
 /* export const APP_ROUTING = RouterModule.forRoot(app_routes); */
-export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

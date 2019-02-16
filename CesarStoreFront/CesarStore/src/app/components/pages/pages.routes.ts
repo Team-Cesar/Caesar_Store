@@ -1,5 +1,5 @@
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 
 import { TabletsComponent } from './tablets/tablets.component';
 import { CamarasComponent } from './camaras/camaras.component';
@@ -27,7 +27,11 @@ const pagesRoutes: Routes = [
             { path: '', redirectTo: '/home', pathMatch: 'full' },
         ]
     }
-    // tslint:disable-next-line:eofline
 ];
 
-export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);
+@NgModule({
+    imports: [RouterModule.forChild(pagesRoutes)],
+    exports: [RouterModule]
+})
+
+export class PAGES_ROUTES {};
